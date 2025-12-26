@@ -1,5 +1,5 @@
 /**
- * Portfolio Script - V.2
+ * Portfolio Script - V.3 Final
  * Author: Amin Hamzah
  */
 
@@ -81,19 +81,17 @@ function initMobileMenu() {
     const navLinks = document.querySelectorAll('.nav-link');
     const body = document.body;
 
-    // Toggle Menu
     hamburger.addEventListener('click', () => {
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
-        body.classList.toggle('menu-open'); // Fix freeze: prevent background scroll
+        body.classList.toggle('menu-open');
     });
 
-    // Close menu when clicking a link
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
-            body.classList.remove('menu-open'); // Restore scroll
+            body.classList.remove('menu-open');
         });
     });
 }
@@ -123,18 +121,17 @@ window.openModal = function(projectId) {
             <p style="color: var(--text-secondary); font-weight: 500;">${data.tools}</p>
         `;
         modal.style.display = "block";
-        document.body.style.overflow = "hidden"; // Prevent background scroll
+        document.body.style.overflow = "hidden";
     }
 };
 
-// Close Modal Logic
 const modal = document.getElementById('project-modal');
 const closeBtn = document.querySelector('.close-modal');
 
 if (closeBtn) {
     closeBtn.onclick = function() {
         modal.style.display = "none";
-        document.body.style.overflow = ""; // Restore scroll
+        document.body.style.overflow = "";
     }
 }
 
@@ -162,7 +159,7 @@ function initBackToTop() {
     });
 }
 
-/* --- 4. Utilities (Dark Mode, Scroll, Animations) --- */
+/* --- 4. Utilities --- */
 function initDarkMode() {
     const toggleBtn = document.getElementById('theme-toggle');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
