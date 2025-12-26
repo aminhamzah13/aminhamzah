@@ -4,8 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Amin Hamzah - Senior QA Engineer</title>
-  <meta name="description" content="Software QA with expertise in Banking & Fintech. Manual & Automation Testing specialist.">
+  <!-- Primary Meta Tags -->
+  <title>Amin Hamzah - QA Engineer | Banking & Fintech Testing Specialist</title>
+  <meta name="title" content="Amin Hamzah - QA Engineer | Banking & Fintech Testing">
+  <meta name="description" content="Software QA with 2+ years exp. Trusted by Bank Mandiri, BCA, and Bank Raya. Expert in manual testing, API validation, and agile workflows.">
+  <meta name="keywords" content="QA Engineer, Software Tester, Manual Testing, Banking QA, Jira, Postman, API Testing, UAT, Regression Testing, Jakarta">
+  <meta name="author" content="Amin Hamzah">
+  <meta name="robots" content="index, follow">
   <meta name="theme-color" content="#ffffff">
   
   <!-- Fonts -->
@@ -16,43 +21,43 @@
   <!-- Stylesheet -->
   <link rel="stylesheet" href="styles.css">
 </head>
-<body id="top">
+<body>
 
   <!-- Back to Top Button -->
-  <a href="#top" class="back-to-top" aria-label="Back to Top">
-    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
-  </a>
+  <button id="back-to-top" aria-label="Back to top">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg>
+  </button>
 
   <!-- Navigation -->
   <header class="navbar">
     <div class="container nav-container">
-      <a href="#top" class="nav-logo">
+      <a href="#" class="nav-logo" aria-label="Amin Hamzah Home">
         <span class="logo-text">AH.</span>
       </a>
 
       <nav class="nav-menu" id="nav-menu">
         <ul class="nav-list">
+          <li><a href="#services" class="nav-link">Services</a></li>
           <li><a href="#about" class="nav-link">About</a></li>
           <li><a href="#projects" class="nav-link">Projects</a></li>
-          <li><a href="#services" class="nav-link">Services</a></li>
           <li><a href="#skills" class="nav-link">Skills</a></li>
           <li><a href="#contact" class="nav-link">Contact</a></li>
         </ul>
         <div class="nav-mobile-cta">
-            <!-- Link disesuaikan dengan nama file CV Anda -->
-            <a href="assets/CV-Amin-Hamzah-QA-2025.pdf" class="btn btn-sm btn-primary full-width-mobile" download>Download CV</a>
+            <a href="assets/CV-Amin-Hamzah-QA-2025.pdf" class="btn btn-sm btn-primary" download>Download CV</a>
         </div>
       </nav>
 
       <div class="nav-actions">
+        <!-- Theme Toggle -->
         <button aria-label="Toggle dark mode" id="theme-toggle" class="theme-toggle">
-          <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">ircle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
-          <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">ircle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
         
         <a href="assets/CV-Amin-Hamzah-QA-2025.pdf" class="btn btn-sm btn-primary desktop-only" download>Download CV</a>
 
-        <button class="hamburger" aria-label="Toggle menu">
+        <button class="hamburger" aria-label="Toggle menu" aria-controls="nav-menu" aria-expanded="false">
           <span class="bar"></span>
           <span class="bar"></span>
           <span class="bar"></span>
@@ -61,12 +66,13 @@
     </div>
   </header>
 
-  <main>
+  <main id="main-content">
     
     <!-- Hero Section -->
     <section class="hero">
       <div class="container hero-container">
         
+        <!-- Text Content -->
         <div class="hero-content animate-on-scroll">
           <span class="eyebrow">Hi, I'm Amin Hamzah</span>
           <h1 class="hero-title">
@@ -74,32 +80,40 @@
           </h1>
           
           <p class="hero-description">
-            Ensuring digital excellence for Indonesia's top financial institutions. I bridge the gap between development and reliability through rigorous manual & automation testing.
+            Ensuring digital excellence through rigorous testing & agile collaboration. Delivering high-impact quality assurance for Indonesia's top financial institutions.
           </p>
           
           <div class="hero-cta">
-            <a href="#contact" class="btn btn-primary">Contact Me</a>
-            <a href="https://linkedin.com/in/aminhamzah13" target="_blank" class="btn btn-secondary">LinkedIn</a>
+            <a href="#contact" class="btn btn-primary">
+              <span>Contact Me</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+            </a>
+            <a href="https://linkedin.com/in/aminhamzah13" target="_blank" class="btn btn-secondary">
+              <span>LinkedIn</span>
+            </a>
           </div>
 
           <div class="social-proof">
             <p class="social-proof-text">TRUSTED BY:</p>
             <div class="social-proof-logos">
-              <span>BANK RAYA</span>
-              <span class="separator">•</span>
+              <span>BANK RAYA INDONESIA</span>
+              <span class="divider">•</span>
               <span>BANK MANDIRI</span>
-              <span class="separator">•</span>
-              <span>BANK BCA</span>
+              <span class="divider">•</span>
+              <span>BANK CENTRAL ASIA (BCA)</span>
             </div>
           </div>
         </div>
 
+        <!-- Visual Content -->
         <div class="hero-visual animate-on-scroll">
           <div class="avatar-container">
             <picture>
+                <source srcset="images/avatar-amin.webp" type="image/webp">
                 <img src="images/avatar-amin.jpg" alt="Amin Hamzah - QA Engineer" class="profile-avatar" width="350" height="350" loading="eager">
             </picture>
             
+            <!-- Floating Badges -->
             <div class="badge-float badge-1">
               <span>2+ Years Exp.</span>
             </div>
@@ -107,141 +121,190 @@
               <span>Banking QA</span>
             </div>
             <div class="badge-float badge-3">
-              <!-- COPY UPDATED -->
-              <span>Zero Critical Bugs in Prod</span>
+              <span>High Impact</span>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- About Me (NO AVATAR, Pure Text) -->
-    <section id="about" class="section-padding bg-secondary">
+    <!-- Services Section (New) -->
+    <section id="services" class="section-padding bg-secondary">
       <div class="container">
         <div class="section-header animate-on-scroll">
-          <h2 class="section-title">Professional Journey</h2>
+          <h2 class="section-title">My Services</h2>
+          <p class="section-subtitle">Comprehensive quality assurance solutions tailored for your product.</p>
         </div>
         
-        <div class="about-simple-content animate-on-scroll">
-          <p>
-            My career began in <strong>Technical Support</strong> for the Jakarta City Government and Wisma Atlet Hospital, where I built a strong foundation in system troubleshooting and user empathy. This experience naturally evolved into Quality Assurance, where I found my passion for preventing issues before they reach the end-user.
-          </p>
-          <p>
-            Transitioning into the <strong>Banking Sector</strong>, I served as a Manual QA at <strong>Bank Central Asia (BCA)</strong>, handling critical systems like Merchant Apps and EDC. Currently, I contribute to <strong>Bank Mandiri</strong> and <strong>Bank Raya</strong>, validating complex financial modules such as Cash Management and Payroll. I focus on delivering high-precision testing to ensure zero-leakage releases in high-pressure agile environments.
-          </p>
+        <div class="services-grid">
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon">🔍</div>
+            <h3 class="service-title">Functional Testing</h3>
+            <p class="service-desc">End-to-end validation of web & mobile apps to ensure business logic meets requirements (SIT/UAT).</p>
+          </div>
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon">📱</div>
+            <h3 class="service-title">Mobile App QA</h3>
+            <p class="service-desc">Rigorous testing on Android & iOS devices covering usability, compatibility, and performance.</p>
+          </div>
+          <div class="service-card animate-on-scroll">
+            <div class="service-icon">🔌</div>
+            <h3 class="service-title">API Testing</h3>
+            <p class="service-desc">Backend validation using Postman to ensure secure and reliable data exchange.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Featured Projects (UPDATED LIST) -->
-    <section id="projects" class="section-padding">
+    <!-- About Section -->
+    <section id="about" class="section-padding">
+      <div class="container about-container">
+        <!-- Content Only (No Image) -->
+        <div class="about-content full-width animate-on-scroll">
+          <div class="section-header left-align">
+             <h2 class="section-title">Professional Journey</h2>
+             <p class="section-subtitle">From infrastructure support to securing critical banking transactions.</p>
+          </div>
+          
+          <div class="timeline">
+            <!-- Item 4: Bank Raya -->
+            <div class="timeline-item">
+               <div class="timeline-marker"></div>
+               <div class="timeline-content">
+                 <span class="timeline-date">Accepted (Future)</span>
+                 <h3 class="timeline-role">Quality Assurance</h3>
+                 <span class="timeline-company">Bank Raya Indonesia</span>
+                 <p>Ready to bring extensive banking QA expertise to digital banking innovation.</p>
+               </div>
+            </div>
+            
+            <!-- Item 3: Mandiri -->
+            <div class="timeline-item">
+              <div class="timeline-marker"></div>
+              <div class="timeline-content">
+                <span class="timeline-date">Sept 2025 - Present</span>
+                <h3 class="timeline-role">Quality Assurance Tester</h3>
+                <span class="timeline-company">PT Bank Mandiri</span>
+                <p>Leading testing for Kopra Cash Management (Web & Mobile), ensuring flawless corporate transaction flows.</p>
+              </div>
+            </div>
+            
+            <!-- Item 2: BCA -->
+            <div class="timeline-item">
+               <div class="timeline-marker"></div>
+               <div class="timeline-content">
+                 <span class="timeline-date">Sept 2023 - Sept 2025</span>
+                 <h3 class="timeline-role">IT Tester Manual (QA)</h3>
+                 <span class="timeline-company">PT Bank Central Asia</span>
+                 <p>Managed QA for Merchant BCA, EDC Systems, and OASE. Validated 6+ critical apps and reduced production defects.</p>
+               </div>
+            </div>
+            
+            <!-- Item 1: IT Support -->
+            <div class="timeline-item">
+               <div class="timeline-marker"></div>
+               <div class="timeline-content">
+                 <span class="timeline-date">Jan 2022 - Sept 2023</span>
+                 <h3 class="timeline-role">IT Technical Support</h3>
+                 <span class="timeline-company">Dept. Kominfo Jakarta Pusat</span>
+                 <p>Maintained network infrastructure and supported government IT operations. Built foundation in system reliability.</p>
+               </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section-padding bg-secondary">
       <div class="container">
         <div class="section-header animate-on-scroll">
-          <h2 class="section-title">Selected Projects</h2>
-          <p class="section-subtitle">Delivering quality for mission-critical financial platforms.</p>
+          <h2 class="section-title">Featured Projects</h2>
+          <p class="section-subtitle">Selected works in banking & financial technology.</p>
         </div>
 
         <div class="projects-grid">
           
           <!-- Project 1: Kopra -->
-          <article class="project-card animate-on-scroll">
+          <article class="project-card animate-on-scroll" data-project-id="kopra">
             <div class="project-header">
-                <span class="project-client">Bank Mandiri</span>
+                <span class="project-client">PT Bank Mandiri</span>
                 <span class="badge">Web & Mobile</span>
             </div>
             <h3 class="project-title">Kopra by Mandiri</h3>
-            <p class="project-description">
-              Corporate cash management system (Transfer, Bill Payment, Payroll).
-            </p>
-            <button class="btn-text" onclick="openModal('modal-kopra')">See Detail &rarr;</button>
+            <p class="project-description">Corporate cash management system for enterprise clients (Transfer, Payroll, Bill Payment).</p>
+            <div class="project-tools">
+                <span class="tool-tag">Jira</span>
+                <span class="tool-tag">Figma</span>
+            </div>
+            <button class="btn-text" onclick="openModal('kopra')">View Details →</button>
           </article>
 
           <!-- Project 2: Merchant BCA -->
-          <article class="project-card animate-on-scroll">
-            <div class="project-header">
-                <span class="project-client">Bank Central Asia</span>
-                <span class="badge">Mobile App</span>
-            </div>
-            <h3 class="project-title">Merchant BCA (MCB)</h3>
-            <p class="project-description">
-               Merchant onboarding and information services application.
-            </p>
-            <button class="btn-text" onclick="openModal('modal-mcb')">See Detail &rarr;</button>
-          </article>
+          <article class="project-card animate-on-scroll" data-project-id="mcb">
+             <div class="project-header">
+                 <span class="project-client">PT Bank Central Asia</span>
+                 <span class="badge">Mobile App</span>
+             </div>
+             <h3 class="project-title">Merchant BCA (MCB)</h3>
+             <p class="project-description">Mobile app for merchant onboarding and service management.</p>
+             <div class="project-tools">
+                 <span class="tool-tag">AS400</span>
+                 <span class="tool-tag">Postman</span>
+             </div>
+             <button class="btn-text" onclick="openModal('mcb')">View Details →</button>
+           </article>
 
-          <!-- Project 3: EDC & APOS -->
-          <article class="project-card animate-on-scroll">
-            <div class="project-header">
-                <span class="project-client">Bank Central Asia</span>
-                <span class="badge">Hardware/Software</span>
-            </div>
-            <h3 class="project-title">EDC & APOS Systems</h3>
-            <p class="project-description">
-              Transaction flows for Credit/Debit, QRIS, and Installments.
-            </p>
-            <button class="btn-text" onclick="openModal('modal-edc')">See Detail &rarr;</button>
-          </article>
+           <!-- Project 3: EDC & APOS -->
+           <article class="project-card animate-on-scroll" data-project-id="edc">
+             <div class="project-header">
+                 <span class="project-client">PT Bank Central Asia</span>
+                 <span class="badge">Terminal & App</span>
+             </div>
+             <h3 class="project-title">EDC & Transaction Apps</h3>
+             <p class="project-description">Transaction flow validation for Credit, Debit, QRIS, and Installment.</p>
+             <div class="project-tools">
+                 <span class="tool-tag">Manual Testing</span>
+                 <span class="tool-tag">BDS</span>
+             </div>
+             <button class="btn-text" onclick="openModal('edc')">View Details →</button>
+           </article>
 
            <!-- Project 4: OASE -->
-           <article class="project-card animate-on-scroll">
-            <div class="project-header">
-                <span class="project-client">Bank Central Asia</span>
-                <span class="badge">Web System</span>
-            </div>
-            <h3 class="project-title">OASE ATM Management</h3>
-            <p class="project-description">
-              Operational management for ATM accessories and monitoring.
-            </p>
-            <button class="btn-text" onclick="openModal('modal-oase')">See Detail &rarr;</button>
-          </article>
+           <article class="project-card animate-on-scroll" data-project-id="oase">
+             <div class="project-header">
+                 <span class="project-client">PT Bank Central Asia</span>
+                 <span class="badge">Web System</span>
+             </div>
+             <h3 class="project-title">OASE ATM Management</h3>
+             <p class="project-description">Operational system for ATM maintenance and accessory tracking.</p>
+             <div class="project-tools">
+                 <span class="tool-tag">IDS</span>
+                 <span class="tool-tag">Excel</span>
+             </div>
+             <button class="btn-text" onclick="openModal('oase')">View Details →</button>
+           </article>
 
-          <!-- Project 5: ACCO -->
-          <article class="project-card animate-on-scroll">
-            <div class="project-header">
-                <span class="project-client">Bank Central Asia</span>
-                <span class="badge">Web Platform</span>
-            </div>
-            <h3 class="project-title">ACCO (Apply Credit Card Online)</h3>
-            <p class="project-description">
-              Online credit card application platform for customers.
-            </p>
-            <button class="btn-text" onclick="openModal('modal-acco')">See Detail &rarr;</button>
-          </article>
+           <!-- Project 5: ACCO -->
+           <article class="project-card animate-on-scroll" data-project-id="acco">
+             <div class="project-header">
+                 <span class="project-client">PT Bank Central Asia</span>
+                 <span class="badge">Web Platform</span>
+             </div>
+             <h3 class="project-title">ACCO (Apply CC Online)</h3>
+             <p class="project-description">Online platform for seamless credit card application processing.</p>
+             <div class="project-tools">
+                 <span class="tool-tag">UAT</span>
+                 <span class="tool-tag">SIT</span>
+             </div>
+             <button class="btn-text" onclick="openModal('acco')">View Details →</button>
+           </article>
 
         </div>
       </div>
     </section>
 
-    <!-- Services Section (NEW) -->
-    <section id="services" class="section-padding bg-secondary">
-      <div class="container">
-        <div class="section-header animate-on-scroll">
-          <h2 class="section-title">Services</h2>
-          <p class="section-subtitle">How I can help your team deliver better software.</p>
-        </div>
-        
-        <div class="services-grid">
-            <div class="service-card animate-on-scroll">
-                <h3>Manual Testing</h3>
-                <p>Comprehensive functional testing to ensure features work exactly as designed before launch.</p>
-            </div>
-            <div class="service-card animate-on-scroll">
-                <h3>Mobile App QA</h3>
-                <p>Validation across Android & iOS devices to ensure smooth UX and crash-free performance.</p>
-            </div>
-            <div class="service-card animate-on-scroll">
-                <h3>Web App QA</h3>
-                <p>Cross-browser testing to guarantee consistency on Chrome, Safari, and Firefox.</p>
-            </div>
-            <div class="service-card animate-on-scroll">
-                <h3>API Testing</h3>
-                <p>Backend validation using Postman to ensure data integrity and secure communication.</p>
-            </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Skills Section (UPDATED) -->
+    <!-- Skills Section -->
     <section id="skills" class="section-padding">
       <div class="container">
         <div class="section-header animate-on-scroll">
@@ -249,48 +312,49 @@
         </div>
 
         <div class="skills-layout">
-            <!-- Competencies -->
+            <!-- Testing Skills -->
             <div class="skills-category animate-on-scroll">
                 <h3 class="skills-heading">Testing Competencies</h3>
                 <div class="skills-pills">
-                    <span class="skill-pill">Manual Testing</span>
+                    <span class="skill-pill">Manual E2E Testing</span>
                     <span class="skill-pill">Regression Testing</span>
-                    <span class="skill-pill">UAT</span>
-                    <span class="skill-pill">SIT</span>
+                    <span class="skill-pill">User Acceptance (UAT)</span>
+                    <span class="skill-pill">System Integration (SIT)</span>
                     <span class="skill-pill">API Testing</span>
-                    <span class="skill-pill">Smoke & Sanity</span>
+                    <span class="skill-pill">Transaction Flow</span>
                 </div>
             </div>
 
-            <!-- Tools (Updated from CV) -->
+            <!-- Tools Grid -->
             <div class="skills-category animate-on-scroll">
-                <h3 class="skills-heading">Tools & Tech</h3>
+                <h3 class="skills-heading">Tools & Environment</h3>
                 <div class="tools-grid">
                     <div class="tool-item">Jira</div>
                     <div class="tool-item">Postman</div>
                     <div class="tool-item">Figma</div>
-                    <div class="tool-item">AS400</div>
-                    <div class="tool-item">MySQL</div>
                     <div class="tool-item">TeMan</div>
-                    <div class="tool-item">IDS/BDS</div>
+                    <div class="tool-item">AS400</div>
+                    <div class="tool-item">IDS / BDS</div>
+                    <div class="tool-item">MySQL</div>
+                    <div class="tool-item">Linux</div>
                 </div>
             </div>
 
-            <!-- Certifications (Combined & Sorted) -->
+            <!-- Certifications -->
             <div class="skills-category animate-on-scroll">
                 <h3 class="skills-heading">Certifications & Training</h3>
                 <div class="certifications-list">
                     <div class="cert-item">
-                        <strong>Bootcamp QA Selenium & Katalon</strong> (2025)
+                        <strong>Bootcamp QA Selenium & Katalon</strong> - Test Aplikasi Kamu (2025)
                     </div>
                     <div class="cert-item">
-                        <strong>Manual & API Testing (Cypress E2E)</strong> (2025)
+                        <strong>Cypress E2E & Manual API Test</strong> - Jago QA (2025)
                     </div>
                     <div class="cert-item">
-                        <strong>Cloud Architect (AWS & Alibaba)</strong> (2023)
+                        <strong>AWS & Alibaba Cloud Certified</strong> - Kemkominfo (2023)
                     </div>
                     <div class="cert-item">
-                        <strong>DevOps Fundamentals (Kemkominfo)</strong> (2023)
+                        <strong>DevOps Fundamentals</strong> - IDN (2023)
                     </div>
                 </div>
             </div>
@@ -301,120 +365,50 @@
     <!-- Contact Section -->
     <section id="contact" class="cta-section animate-on-scroll">
       <div class="container cta-container">
-        <h2 class="cta-title">Ready to collaborate?</h2>
+        <h2 class="cta-title">Ready to improve your software quality?</h2>
         <p class="cta-description">
-          Open for QA projects or full-time opportunities.
+          Open for collaboration in Quality Assurance. Let's discuss your project needs.
         </p>
         
         <div class="cta-buttons">
-          <!-- Direct WA Template -->
-          <a href="https://wa.me/6281324624422?text=Halo%20Mas%20Amin,%20saya%20tertarik%20bekerja%20sama%20untuk%20project%20QA..." target="_blank" class="btn btn-primary btn-large">
+          <a href="https://wa.me/6281324624422?text=Hello%20Amin,%20I%20am%20interested%20in%20your%20QA%20services%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" class="btn btn-primary btn-large">
             <span>WhatsApp Me</span>
           </a>
-          <!-- Direct Email -->
-          <a href="mailto:aminhamzah.it@gmail.com" class="btn btn-secondary btn-large">
+          <a href="mailto:aminhamzah.it@gmail.com?subject=Collaboration%20Inquiry&body=Hi%20Amin,%0D%0A%0D%0AI%20reviewed%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20potential%20opportunity." class="btn btn-secondary btn-large">
             <span>Send Email</span>
           </a>
         </div>
       </div>
     </section>
 
+    <!-- Project Modal (Hidden by default) -->
+    <div id="project-modal" class="modal">
+      <div class="modal-content">
+        <span class="close-modal">&times;</span>
+        <div id="modal-body">
+          <!-- Content injected via JS -->
+        </div>
+      </div>
+    </div>
+
   </main>
 
-  <!-- Footer (Cleaned Up) -->
   <footer class="footer">
-    <div class="container footer-content-center">
-        <p class="footer-email"><a href="mailto:aminhamzah.it@gmail.com">aminhamzah.it@gmail.com</a></p>
-        <p class="footer-phone">+62 813-2462-4422</p>
-        <p class="footer-social"><a href="https://linkedin.com/in/aminhamzah13" target="_blank">LinkedIn Profile</a></p>
-        <div class="footer-copyright">
-            © <span id="current-year"></span> Amin Hamzah.
-        </div>
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div class="footer-logo">Amin Hamzah.</div>
+        <p class="footer-tagline">QA Engineer | Jakarta, ID</p>
+      </div>
+      <!-- Links removed as requested, keeping structure clean -->
+      <div class="footer-col empty-col"></div> 
+    </div>
+    
+    <div class="container footer-bottom">
+      <p class="copyright">
+        © <span id="current-year"></span> Amin Hamzah.
+      </p>
     </div>
   </footer>
-
-  <!-- MODALS (Hidden by default) -->
-  
-  <!-- Modal Kopra -->
-  <div id="modal-kopra" class="modal">
-    <div class="modal-content animate-pop">
-        <span class="close-modal" onclick="closeModal('modal-kopra')">&times;</span>
-        <h3>Kopra by Mandiri</h3>
-        <p class="modal-subtitle">Web & Mobile Application</p>
-        <div class="modal-body">
-            <p><strong>Description:</strong> Corporate cash management system focusing on transfer (intrabank, manual, file upload), bill payment, and payroll modules.</p>
-            <p><strong>Achievements:</strong> Validated 150+ test scenarios across web and mobile. Ensured seamless production launch for corporate clients.</p>
-            <p><strong>Tools:</strong> Jira, Figma, Manual Testing.</p>
-            <div class="modal-image-placeholder">
-                [Project Sample Photo Placeholder]
-            </div>
-        </div>
-    </div>
-  </div>
-
-  <!-- Modal MCB -->
-  <div id="modal-mcb" class="modal">
-    <div class="modal-content animate-pop">
-        <span class="close-modal" onclick="closeModal('modal-mcb')">&times;</span>
-        <h3>Merchant BCA (MCB)</h3>
-        <p class="modal-subtitle">Mobile Application</p>
-        <div class="modal-body">
-            <p><strong>Description:</strong> Application for merchant onboarding and information services.</p>
-            <p><strong>Achievements:</strong> Identified critical bugs pre-production maintaining transaction accuracy.</p>
-            <p><strong>Tools:</strong> Manual Testing, Jira.</p>
-            <div class="modal-image-placeholder">
-                [Project Sample Photo Placeholder]
-            </div>
-        </div>
-    </div>
-  </div>
-
-  <!-- Modal EDC -->
-  <div id="modal-edc" class="modal">
-    <div class="modal-content animate-pop">
-        <span class="close-modal" onclick="closeModal('modal-edc')">&times;</span>
-        <h3>EDC & APOS</h3>
-        <p class="modal-subtitle">Hardware & Software</p>
-        <div class="modal-body">
-            <p><strong>Description:</strong> Handling credit, debit, QRIS, refund, and installment transaction flows on EDC terminals.</p>
-            <p><strong>Tools:</strong> AS400, Postman, TeMan.</p>
-            <div class="modal-image-placeholder">
-                [Project Sample Photo Placeholder]
-            </div>
-        </div>
-    </div>
-  </div>
-
-  <!-- Modal OASE -->
-  <div id="modal-oase" class="modal">
-    <div class="modal-content animate-pop">
-        <span class="close-modal" onclick="closeModal('modal-oase')">&times;</span>
-        <h3>OASE ATM Management</h3>
-        <p class="modal-subtitle">Web System</p>
-        <div class="modal-body">
-            <p><strong>Description:</strong> ATM accessory operational management and monitoring.</p>
-            <p><strong>Achievements:</strong> Ensured operational reliability for ATM network.</p>
-            <div class="modal-image-placeholder">
-                [Project Sample Photo Placeholder]
-            </div>
-        </div>
-    </div>
-  </div>
-
-  <!-- Modal ACCO -->
-  <div id="modal-acco" class="modal">
-    <div class="modal-content animate-pop">
-        <span class="close-modal" onclick="closeModal('modal-acco')">&times;</span>
-        <h3>ACCO</h3>
-        <p class="modal-subtitle">Web Platform</p>
-        <div class="modal-body">
-            <p><strong>Description:</strong> Apply Credit Card Online platform facilitating new user applications.</p>
-            <div class="modal-image-placeholder">
-                [Project Sample Photo Placeholder]
-            </div>
-        </div>
-    </div>
-  </div>
 
   <script src="script.js" defer></script>
 </body>
