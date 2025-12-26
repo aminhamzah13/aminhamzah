@@ -1,137 +1,113 @@
-/**
- * Portfolio Script - Monochrome Edition
- * Author: Amin Hamzah
- */
-
 document.addEventListener('DOMContentLoaded', () => {
     initDarkMode();
-    initSmoothScroll();
-    initAnimations();
     initMobileMenu();
+    initBackToTop();
     initCopyrightYear();
+    initAnimations();
     initNavbarScroll();
-  });
-  
-  /**
-   * 1. Dark Mode Logic with LocalStorage
-   */
-  function initDarkMode() {
+});
+
+// 1. Dark Mode
+function initDarkMode() {
     const toggleBtn = document.getElementById('theme-toggle');
     const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    
-    // Check stored preference or system default
     const currentTheme = localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light');
     document.documentElement.setAttribute('data-theme', currentTheme);
-  
+
     toggleBtn.addEventListener('click', () => {
-      const current = document.documentElement.getAttribute('data-theme');
-      const next = current === 'dark' ? 'light' : 'dark';
-      
-      document.documentElement.setAttribute('data-theme', next);
-      localStorage.setItem('theme', next);
+        const current = document.documentElement.getAttribute('data-theme');
+        const next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('theme', next);
     });
-  }
-  
-  /**
-   * 2. Smooth Scroll for Anchor Links
-   */
-  function initSmoothScroll() {
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const targetId = this.getAttribute('href');
-        if (targetId === '#') return;
-        
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-          // Close mobile menu if open
-          const navMenu = document.querySelector('.nav-menu');
-          const hamburger = document.querySelector('.hamburger');
-          if (navMenu.classList.contains('active')) {
-            navMenu.classList.remove('active');
-            hamburger.classList.remove('active');
-          }
-  
-          targetElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
-  }
-  
-  /**
-   * 3. Intersection Observer for Fade-in Animations
-   */
-  function initAnimations() {
-    const observerOptions = {
-      threshold: 0.1, 
-      rootMargin: '0px 0px -50px 0px'
-    };
-  
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('fade-in');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, observerOptions);
-  
-    document.querySelectorAll('.animate-on-scroll').forEach(el => {
-      observer.observe(el);
-    });
-  }
-  
-  /**
-   * 4. Mobile Hamburger Menu Toggle
-   */
-  function initMobileMenu() {
+}
+
+// 2. Mobile Menu (FIXED: No Freeze)
+function initMobileMenu() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
+    const navLinks = document.querySelectorAll('.nav-link');
     const body = document.body;
-  
+
+    // Toggle Menu
     hamburger.addEventListener('click', () => {
-      const isActive = hamburger.classList.toggle('active');
-      navMenu.classList.toggle('active');
-      
-      if (isActive) {
-        body.style.overflow = 'hidden';
-      } else {
-        body.style.overflow = '';
-      }
+        hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        body.classList.toggle('no-scroll'); // Use CSS class instead of inline style
     });
-  }
-  
-  /**
-   * 5. Dynamic Copyright Year
-   */
-  function initCopyrightYear() {
-    const yearSpan = document.getElementById('current-year');
-    if (yearSpan) {
-      yearSpan.textContent = new Date().getFullYear();
-    }
-  }
-  
-  /**
-   * 6. Navbar Background Change on Scroll
-   */
-  function initNavbarScroll() {
-    const navbar = document.querySelector('.navbar');
-    let ticking = false;
-  
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        window.requestAnimationFrame(() => {
-          if (window.scrollY > 50) {
-            navbar.classList.add('scrolled');
-          } else {
-            navbar.classList.remove('scrolled');
-          }
-          ticking = false;
+
+    // Close Menu on Link Click
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            body.classList.remove('no-scroll'); // Restore scrolling
         });
-        ticking = true;
-      }
     });
-  }
+}
+
+// 3. Back to Top & Navbar Scroll
+function initBackToTop() {
+    const backBtn = document.querySelector('.back-to-top');
+    const navbar = document.querySelector('.navbar');
+    
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) {
+            backBtn.classList.add('visible');
+        } else {
+            backBtn.classList.remove('visible');
+        }
+
+        if (window.scrollY > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+    });
+}
+
+function initNavbarScroll() {
+    // Merged into initBackToTop for scroll event efficiency
+}
+
+// 4. Modal Logic (Project Details)
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = "flex";
+        document.body.classList.add('no-scroll');
+    }
+}
+
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    if (modal) {
+        modal.style.display = "none";
+        document.body.classList.remove('no-scroll');
+    }
+}
+
+// Close modal when clicking outside content
+window.onclick = function(event) {
+    if (event.target.classList.contains('modal')) {
+        event.target.style.display = "none";
+        document.body.classList.remove('no-scroll');
+    }
+}
+
+// 5. Utilities
+function initCopyrightYear() {
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+}
+
+function initAnimations() {
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('fade-in');
+            }
+        });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+}
