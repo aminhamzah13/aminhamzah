@@ -97,40 +97,52 @@ function initMobileMenu() {
 }
 
 /* --- 2. Modal Logic --- */
-window.openModal = function(projectId) {
-    const modal = document.getElementById('project-modal');
-    const modalBody = document.getElementById('modal-body');
-    const data = projectData[projectId];
-
-    if (data) {
-        let featureList = data.features.map(f => `<li>${f}</li>`).join('');
-        
-        modalBody.innerHTML = `
-            <div class="modal-header">
-                <span class="badge" style="margin-bottom:10px; display:inline-block;">${data.client}</span>
-                <h2 class="modal-project-title">${data.title}</h2>
-            </div>
-            <p style="margin-bottom: 1.5rem;">${data.desc}</p>
-            
-            <h4>Key Features & Testing Scope:</h4>
-            <ul class="modal-list">
-                ${featureList}
-            </ul>
-            
-            <h4>Tools & Tech:</h4>
-            <p style="color: var(--text-secondary); font-weight: 500;">${data.tools}</p>
-        `;
-        modal.style.display = "block";
-        document.body.style.overflow = "hidden";
-    }
-};
-
 const modal = document.getElementById('project-modal');
 const closeBtn = document.querySelector('.close-modal');
+let lastFocusedElement = null;
+
+const FOCUSABLE = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+
+function openModal(projectId) {
+    const modalBody = document.getElementById('modal-body');
+    const data = projectData[projectId];
+    if (!data) return;
+
+    const featureList = data.features.map(f => {
+        const text = document.createTextNode(f);
+        const li = document.createElement('li');
+        li.appendChild(text);
+        return li.outerHTML;
+    }).join('');
+
+    modalBody.innerHTML = `
+        <div class="modal-header">
+            <span class="badge" style="margin-bottom:10px; display:inline-block;">${data.client}</span>
+            <h2 class="modal-project-title" id="modal-title">${data.title}</h2>
+        </div>
+        <p style="margin-bottom: 1.5rem;">${data.desc}</p>
+        <h4>Key Features & Testing Scope:</h4>
+        <ul class="modal-list">${featureList}</ul>
+        <h4>Tools & Tech:</h4>
+        <p style="color: var(--text-secondary); font-weight: 500;">${data.tools}</p>
+    `;
+
+    lastFocusedElement = document.activeElement;
+    modal.style.display = "block";
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = "hidden";
+
+    const firstFocusable = modal.querySelector(FOCUSABLE);
+    if (firstFocusable) firstFocusable.focus();
+}
+
+window.openModal = openModal;
 
 function closeModal() {
     modal.style.display = "none";
+    modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = "";
+    if (lastFocusedElement) lastFocusedElement.focus();
 }
 
 if (closeBtn) {
@@ -139,6 +151,22 @@ if (closeBtn) {
 
 modal.addEventListener('click', (event) => {
     if (event.target === modal) closeModal();
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modal.style.display === 'block') closeModal();
+
+    if (e.key === 'Tab' && modal.style.display === 'block') {
+        const focusable = [...modal.querySelectorAll(FOCUSABLE)];
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey) {
+            if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+        } else {
+            if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+    }
 });
 
 /* --- 3. Back to Top --- */

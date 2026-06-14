@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://aminhamzah13.github.io/aminhamzah/sitemap.xml
