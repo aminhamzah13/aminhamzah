@@ -800,6 +800,7 @@ button {
     .hero {
         padding-top: 100px;
         text-align: left;
+        overflow-x: hidden;
     }
 
     .services-grid,
@@ -909,12 +910,24 @@ button {
         height: 240px;
     }
 
+    .badge-1 {
+        top: -10px;
+        right: 0;
+    }
+
     .badge-2 {
         right: 0;
+        bottom: 30px;
     }
 
     .badge-3 {
         left: 10px;
+        bottom: -10px;
+    }
+
+    .hero-visual {
+        overflow: visible;
+        padding: 0 2rem;
     }
 
     .hero-cta {
