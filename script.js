@@ -128,31 +128,33 @@ window.openModal = function(projectId) {
 const modal = document.getElementById('project-modal');
 const closeBtn = document.querySelector('.close-modal');
 
-if (closeBtn) {
-    closeBtn.onclick = function() {
-        modal.style.display = "none";
-        document.body.style.overflow = "";
-    }
+function closeModal() {
+    modal.style.display = "none";
+    document.body.style.overflow = "";
 }
 
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-        document.body.style.overflow = "";
-    }
+if (closeBtn) {
+    closeBtn.addEventListener('click', closeModal);
 }
+
+modal.addEventListener('click', (event) => {
+    if (event.target === modal) closeModal();
+});
 
 /* --- 3. Back to Top --- */
 function initBackToTop() {
     const backToTopBtn = document.getElementById('back-to-top');
-    
+    let ticking = false;
+
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 300) {
-            backToTopBtn.style.display = "block";
-        } else {
-            backToTopBtn.style.display = "none";
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                backToTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
+                ticking = false;
+            });
+            ticking = true;
         }
-    });
+    }, { passive: true });
 
     backToTopBtn.addEventListener('click', () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -162,11 +164,11 @@ function initBackToTop() {
 /* --- 4. Utilities --- */
 function initDarkMode() {
     const toggleBtn = document.getElementById('theme-toggle');
-    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    const currentTheme = localStorage.getItem('theme') || (prefersDark ? 'dark' : 'light');
-    
-    document.documentElement.setAttribute('data-theme', currentTheme);
-  
+
+    requestAnimationFrame(() => {
+        document.body.classList.add('theme-ready');
+    });
+
     toggleBtn.addEventListener('click', () => {
         const current = document.documentElement.getAttribute('data-theme');
         const next = current === 'dark' ? 'light' : 'dark';
@@ -204,9 +206,17 @@ function initAnimations() {
 
 function initNavbarScroll() {
     const navbar = document.querySelector('.navbar');
+    let ticking = false;
+
     window.addEventListener('scroll', () => {
-        navbar.classList.toggle('scrolled', window.scrollY > 50);
-    });
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                navbar.classList.toggle('scrolled', window.scrollY > 50);
+                ticking = false;
+            });
+            ticking = true;
+        }
+    }, { passive: true });
 }
 
 function initCopyrightYear() {

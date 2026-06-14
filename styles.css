@@ -56,8 +56,11 @@ body {
     background-color: var(--bg-primary);
     color: var(--text-secondary);
     line-height: 1.7;
-    transition: background-color 0.3s, color 0.3s;
     overflow-x: hidden;
+}
+
+body.theme-ready {
+    transition: background-color 0.3s, color 0.3s;
 }
 
 h1,
@@ -390,7 +393,7 @@ button {
     padding: 2rem;
     border: 1px solid var(--border);
     border-radius: var(--radius-md);
-    transition: 0.3s;
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 
 .service-card:hover {
@@ -499,7 +502,7 @@ button {
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    transition: 0.3s;
+    transition: border-color 0.3s, box-shadow 0.3s, transform 0.3s;
 }
 
 .project-card:hover {
@@ -678,17 +681,9 @@ button {
     border-top: 1px solid var(--border);
     padding-top: 3rem;
     padding-bottom: 1rem;
-    background-color: #000;
-    color: #fff;
-}
-
-/* Override for footer specific dark style if needed, based on screenshot preference, otherwise stick to monochrome variables. Keeping monochrome variables for consistency with V1/V2 but applying strict structure. */
-.footer {
     background-color: var(--bg-primary);
     color: var(--text-primary);
 }
-
-/* Restore theme consistency */
 
 .footer-grid {
     display: grid;
