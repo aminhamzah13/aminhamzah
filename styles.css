@@ -743,6 +743,24 @@ button {
     transform: translateY(-3px);
 }
 
+/* Scroll Animations */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.animate-on-scroll.fade-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Fallback: no JS */
+.no-js .animate-on-scroll {
+    opacity: 1;
+    transform: none;
+}
+
 /* Reduced Motion */
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
@@ -877,5 +895,38 @@ button {
 
     .social-proof-logos {
         justify-content: flex-start;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-title {
+        font-size: clamp(1.8rem, 8vw, 2.4rem);
+    }
+
+    .avatar-container {
+        width: 240px;
+        height: 240px;
+    }
+
+    .badge-2 {
+        right: -10px;
+    }
+
+    .badge-3 {
+        left: 10px;
+    }
+
+    .hero-cta {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .hero-cta .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .section-title {
+        font-size: 1.75rem;
     }
 }

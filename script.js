@@ -193,6 +193,13 @@ function initBackToTop() {
 function initDarkMode() {
     const toggleBtn = document.getElementById('theme-toggle');
 
+    const syncAriaPressed = () => {
+        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+        toggleBtn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
+    };
+
+    syncAriaPressed();
+
     requestAnimationFrame(() => {
         document.body.classList.add('theme-ready');
     });
@@ -202,6 +209,7 @@ function initDarkMode() {
         const next = current === 'dark' ? 'light' : 'dark';
         document.documentElement.setAttribute('data-theme', next);
         localStorage.setItem('theme', next);
+        syncAriaPressed();
     });
 }
 
@@ -220,6 +228,13 @@ function initSmoothScroll() {
 }
 
 function initAnimations() {
+    const els = document.querySelectorAll('.animate-on-scroll');
+
+    if (!('IntersectionObserver' in window)) {
+        els.forEach(el => el.classList.add('fade-in'));
+        return;
+    }
+
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -227,9 +242,9 @@ function initAnimations() {
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
-  
-    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+    }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+
+    els.forEach(el => observer.observe(el));
 }
 
 function initNavbarScroll() {
