@@ -916,8 +916,7 @@ button {
     }
 
     .badge-2 {
-        right: 0;
-        bottom: 30px;
+        display: none;
     }
 
     .badge-3 {
