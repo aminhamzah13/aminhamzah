@@ -894,6 +894,10 @@ button {
         width: 100%;
     }
 
+    .badge-2 {
+        display: none;
+    }
+
     .social-proof-logos {
         justify-content: flex-start;
     }
