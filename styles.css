@@ -250,6 +250,7 @@ button {
 .social-proof {
     border-top: 1px solid var(--border);
     padding-top: 1.5rem;
+    padding-bottom: 1rem;
 }
 
 .social-proof-text {
@@ -262,16 +263,23 @@ button {
 
 .social-proof-logos {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.8rem;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0;
     font-weight: 700;
     color: var(--text-primary);
     font-size: 0.85rem;
-    align-items: center;
 }
 
-.divider {
+.proof-item {
+    white-space: nowrap;
+}
+
+.proof-item + .proof-item::before {
+    content: '•';
     color: var(--text-tertiary);
+    margin: 0 0.5rem;
 }
 
 .avatar-container {
@@ -569,6 +577,7 @@ button {
     background-color: var(--bg-primary);
     margin: 5% auto;
     padding: 2rem;
+    padding-top: 3rem;
     border: 1px solid var(--border);
     width: 90%;
     max-width: 600px;
@@ -578,15 +587,29 @@ button {
 }
 
 .close-modal {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
     color: var(--text-tertiary);
-    float: right;
-    font-size: 28px;
+    font-size: 20px;
     font-weight: bold;
     cursor: pointer;
+    line-height: 1;
+    transition: background 0.2s, color 0.2s, border-color 0.2s;
 }
 
 .close-modal:hover {
-    color: var(--text-primary);
+    background: var(--primary);
+    color: var(--bg-primary);
+    border-color: var(--primary);
 }
 
 .modal-project-title {
@@ -898,9 +921,6 @@ button {
         display: none;
     }
 
-    .social-proof-logos {
-        justify-content: flex-start;
-    }
 }
 
 @media (max-width: 480px) {
