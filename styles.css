@@ -900,7 +900,8 @@ button {
 
 @media (max-width: 480px) {
     .hero-title {
-        font-size: clamp(1.8rem, 8vw, 2.4rem);
+        font-size: clamp(1.6rem, 7vw, 2rem);
+        word-break: break-word;
     }
 
     .avatar-container {
@@ -909,7 +910,7 @@ button {
     }
 
     .badge-2 {
-        right: -10px;
+        right: 0;
     }
 
     .badge-3 {

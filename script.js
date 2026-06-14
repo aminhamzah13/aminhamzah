@@ -242,9 +242,16 @@ function initAnimations() {
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0.05, rootMargin: '0px 0px -30px 0px' });
+    }, { threshold: 0, rootMargin: '0px' });
 
-    els.forEach(el => observer.observe(el));
+    els.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+            el.classList.add('fade-in');
+        } else {
+            observer.observe(el);
+        }
+    });
 }
 
 function initNavbarScroll() {
