@@ -913,6 +913,8 @@ button {
     .badge-1 {
         top: -10px;
         right: 0;
+        font-size: 0.7rem;
+        padding: 6px 10px;
     }
 
     .badge-2 {
@@ -925,8 +927,7 @@ button {
     }
 
     .hero-visual {
-        overflow: visible;
-        padding: 0 2rem;
+        padding: 0 2.5rem;
     }
 
     .hero-cta {
