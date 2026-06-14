@@ -18,7 +18,7 @@ const projectData = {
     kopra: {
         title: "Kopra by Mandiri",
         client: "PT Bank Mandiri",
-        desc: "Comprehensive corporate cash management system for enterprise clients.",
+        desc: "Corporate cash management platform serving enterprise clients — validated across 150+ test scenarios with 0 critical bugs at launch.",
         features: [
             "Cash Management: Intrabank, Interbank, Manual & File Upload Transfers.",
             "Bill Payment Module: PLN, Telkom, PDAM, etc.",
@@ -30,7 +30,7 @@ const projectData = {
     mcb: {
         title: "Merchant BCA (MCB)",
         client: "PT Bank Central Asia",
-        desc: "Mobile application designed for BCA merchant onboarding and services.",
+        desc: "Mobile app for BCA merchant onboarding — validated end-to-end from registration flow to backend API integration.",
         features: [
             "Merchant Onboarding & Verification flows.",
             "Information dashboard & service management.",
@@ -41,7 +41,7 @@ const projectData = {
     edc: {
         title: "EDC & Transaction Apps",
         client: "PT Bank Central Asia",
-        desc: "End-to-end validation of payment terminal transactions.",
+        desc: "Payment terminal QA covering Credit, Debit, QRIS, refunds, voids, and installment transactions.",
         features: [
             "Credit & Debit Card processing validation.",
             "QRIS Payment Gateway testing.",
@@ -53,7 +53,7 @@ const projectData = {
     oase: {
         title: "OASE ATM Management",
         client: "PT Bank Central Asia",
-        desc: "Operational management system for ATM network.",
+        desc: "ATM network management system — validated lifecycle tracking, inventory, and operational reporting integrity.",
         features: [
             "ATM lifecycle management and tracking.",
             "Accessory inventory and operational reporting.",
@@ -64,7 +64,7 @@ const projectData = {
     acco: {
         title: "Apply Credit Card Online (ACCO)",
         client: "PT Bank Central Asia",
-        desc: "Digital platform for customer credit card applications.",
+        desc: "Credit card application portal — validated user data flows, document verification, status tracking, and notification systems.",
         features: [
             "User data entry and validation.",
             "Document upload and verification flows.",
