@@ -8,7 +8,7 @@
 HTML · CSS · Vanilla JavaScript · GitHub Pages
 
 ## Highlights
-- Dark / light mode with system preference detection
+- Dark UI with Lite / Full mode toggle (remembered per visitor, `?mode=lite` link)
 - Responsive design (mobile, tablet, desktop)
 - Accessible project modals (keyboard navigation, focus trap)
 - SEO optimized — Open Graph, Schema.org, sitemap
