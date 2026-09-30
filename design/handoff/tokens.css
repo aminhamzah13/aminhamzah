@@ -1,0 +1,41 @@
+/* Portfolio v3 design tokens — sumber: variable di file .pen (pen.dev) */
+:root {
+  /* Background & surface */
+  --bg: #0E0E0D;
+  --bg-glass: #0E0E0D80;
+  --surface-raised: #1B1A18;
+  --surface-1: #FFFFFF08;
+  --surface-2: #FFFFFF0D;
+  --surface-3: #FFFFFF14;
+
+  /* Text */
+  --text-primary: #EDEDEC;
+  --text-secondary: #BDBCB6;
+  --text-tertiary: #8A8984;
+  --text-inverse: #0E0E0D;
+  --primary: #EDEDEC;
+
+  /* Border */
+  --border-strong: #FFFFFF40;
+  --border: #FFFFFF26;
+  --border-soft: #FFFFFF1F;
+  --border-subtle: #FFFFFF14;
+
+  /* Status */
+  --accent: #8FD9A8;
+  --accent-bg: #8FD9A81A;
+  --accent-border: #8FD9A840;
+  --warning: #F2B880;
+  --warning-bg: #F2B8801A;
+  --warning-border: #F2B88040;
+
+  /* Typography */
+  --font-sans: "Instrument Sans", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Radius */
+  --radius-pill: 9999px;
+  --radius-card: 20px;
+  --radius-lg: 24px;
+  --radius-xl: 28px;
+}

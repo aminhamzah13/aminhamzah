@@ -4,8 +4,8 @@
   "description": "Portfolio of Amin Hamzah, QA Engineer specializing in Banking & Fintech.",
   "start_url": "/aminhamzah/",
   "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#000000",
+  "background_color": "#0E0E0D",
+  "theme_color": "#0E0E0D",
   "icons": [
     {
       "src": "images/avatar-amin.jpg",
