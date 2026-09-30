@@ -1,5 +1,5 @@
 /**
- * Portfolio Script - v3 (Full + Lite)
+ * Portfolio Script - v3.1 (Full + Lite)
  * Author: Amin Hamzah
  */
 
@@ -8,8 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initMobileMenu();
     initProjects();
     initSmoothScroll();
-    initAnimations();
-    initBackToTop();
+    initScrollSpy();
     initCopyrightYear();
 });
 
@@ -94,7 +93,7 @@ function setMode(mode, persist) {
     if (persist) {
         try { localStorage.setItem('mode', next); } catch (e) { /* storage blocked */ }
     }
-    document.querySelectorAll('[data-set-mode]').forEach(btn => {
+    document.querySelectorAll('button[data-set-mode]').forEach(btn => {
         btn.setAttribute('aria-pressed', btn.dataset.setMode === next ? 'true' : 'false');
     });
 }
@@ -103,13 +102,14 @@ function initModeSwitch() {
     setMode(document.documentElement.getAttribute('data-mode'));
 
     document.querySelectorAll('[data-set-mode]').forEach(btn => {
-        btn.addEventListener('click', () => {
+        btn.addEventListener('click', (e) => {
+            if (btn.tagName === 'A') e.preventDefault();
             const mode = btn.dataset.setMode;
             if (mode === document.documentElement.getAttribute('data-mode')) return;
             closeMenu();
             setMode(mode, true);
             window.scrollTo({ top: 0 });
-            const visible = [...document.querySelectorAll(`[data-set-mode="${mode}"]`)].find(el => el.offsetParent !== null);
+            const visible = [...document.querySelectorAll(`button[data-set-mode="${mode}"]`)].find(el => el.offsetParent !== null);
             if (visible) visible.focus();
             if (typeof gtag === 'function') gtag('event', 'mode_switch', { mode });
         });
@@ -169,7 +169,7 @@ function escapeHTML(str) {
     return div.innerHTML;
 }
 
-function openModal(projectId) {
+function openModal(projectId, trigger) {
     const data = projectData[projectId];
     if (!data) return;
 
@@ -192,7 +192,7 @@ function openModal(projectId) {
         </div>
     `;
 
-    lastFocusedElement = document.activeElement;
+    lastFocusedElement = trigger || document.activeElement;
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
@@ -214,7 +214,7 @@ function closeModal() {
 
 function initProjects() {
     document.querySelectorAll('.project-open').forEach(btn => {
-        btn.addEventListener('click', () => openModal(btn.dataset.project));
+        btn.addEventListener('click', () => openModal(btn.dataset.project, btn));
     });
 
     closeBtn.addEventListener('click', closeModal);
@@ -243,32 +243,11 @@ function initProjects() {
             const expanded = list.classList.toggle('is-expanded');
             showAll.setAttribute('aria-expanded', expanded ? 'true' : 'false');
             showAll.querySelector('.show-all-label').textContent = expanded ? 'Show fewer projects' : 'Show all 6 projects';
-            list.querySelectorAll('.animate-on-scroll').forEach(el => el.classList.add('fade-in'));
         });
     }
 }
 
-/* --- 4. Back to Top --- */
-function initBackToTop() {
-    const backToTopBtn = document.getElementById('back-to-top');
-    let ticking = false;
-
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            requestAnimationFrame(() => {
-                backToTopBtn.classList.toggle('is-visible', window.scrollY > 600);
-                ticking = false;
-            });
-            ticking = true;
-        }
-    }, { passive: true });
-
-    backToTopBtn.addEventListener('click', () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-}
-
-/* --- 5. Utilities --- */
+/* --- 4. Utilities --- */
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
@@ -280,35 +259,30 @@ function initSmoothScroll() {
                 window.scrollTo({ top: 0, behavior: 'smooth' });
             } else {
                 targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                if (targetElement.tagName === 'MAIN') targetElement.focus({ preventScroll: true });
             }
         });
     });
 }
 
-function initAnimations() {
-    const els = document.querySelectorAll('.animate-on-scroll');
-
-    if (!('IntersectionObserver' in window)) {
-        els.forEach(el => el.classList.add('fade-in'));
-        return;
-    }
-
+/* Scrollspy: highlight the nav link of the section in view */
+function initScrollSpy() {
+    const links = [...document.querySelectorAll('.nav-links .nav-link')];
+    if (!links.length || !('IntersectionObserver' in window)) return;
+    const linkFor = { services: '#services', about: '#about', projects: '#projects', 'sample-work': '#projects', skills: '#skills' };
+    const setActive = (href) => links.forEach(l => {
+        const on = l.getAttribute('href') === href;
+        l.classList.toggle('is-active', on);
+        if (on) l.setAttribute('aria-current', 'true'); else l.removeAttribute('aria-current');
+    });
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in');
-                observer.unobserve(entry.target);
-            }
+            if (entry.isIntersecting) setActive(linkFor[entry.target.id] || null);
         });
-    }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
-
-    els.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.height > 0) {
-            el.classList.add('fade-in');
-        } else {
-            observer.observe(el);
-        }
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    ['top', 'services', 'about', 'projects', 'sample-work', 'skills', 'contact'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) observer.observe(el);
     });
 }
 
