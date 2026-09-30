@@ -1,20 +1,33 @@
 /**
- * Portfolio Script - V.3 Final
+ * Portfolio Script - v3 (Full + Lite)
  * Author: Amin Hamzah
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-    initDarkMode();
+    initModeSwitch();
+    initMobileMenu();
+    initProjects();
     initSmoothScroll();
     initAnimations();
-    initMobileMenu();
     initBackToTop();
     initCopyrightYear();
-    initNavbarScroll();
 });
 
 /* --- Data: Project Details --- */
 const projectData = {
+    // TODO(dummy): isi modal Bank Raya diturunkan dari teks card desain v3 — ganti dengan data asli sebelum publish
+    raya: {
+        title: "Digital banking app",
+        client: "Bank Raya Indonesia",
+        desc: "Mobile banking for retail customers: account opening with e-KYC, BI-FAST transfers and transaction history.",
+        features: [
+            "Account opening with e-KYC.",
+            "BI-FAST transfers.",
+            "Transaction history.",
+            "200+ case regression suite, run every sprint."
+        ],
+        tools: "Jira, Postman, SIT, UAT"
+    },
     kopra: {
         title: "Kopra by Mandiri",
         client: "PT Bank Mandiri",
@@ -74,102 +87,168 @@ const projectData = {
     }
 };
 
-/* --- 1. Mobile Menu & Navigation --- */
-function initMobileMenu() {
-    const hamburger = document.querySelector('.hamburger');
-    const navMenu = document.querySelector('.nav-menu');
-    const navLinks = document.querySelectorAll('.nav-link');
-    const body = document.body;
-
-    hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-        body.classList.toggle('menu-open');
+/* --- 1. Lite / Full mode --- */
+function setMode(mode, persist) {
+    const next = mode === 'lite' ? 'lite' : 'full';
+    document.documentElement.setAttribute('data-mode', next);
+    if (persist) {
+        try { localStorage.setItem('mode', next); } catch (e) { /* storage blocked */ }
+    }
+    document.querySelectorAll('[data-set-mode]').forEach(btn => {
+        btn.setAttribute('aria-pressed', btn.dataset.setMode === next ? 'true' : 'false');
     });
+}
 
-    navLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
-            body.classList.remove('menu-open');
+function initModeSwitch() {
+    setMode(document.documentElement.getAttribute('data-mode'));
+
+    document.querySelectorAll('[data-set-mode]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const mode = btn.dataset.setMode;
+            if (mode === document.documentElement.getAttribute('data-mode')) return;
+            closeMenu();
+            setMode(mode, true);
+            window.scrollTo({ top: 0 });
+            const visible = [...document.querySelectorAll(`[data-set-mode="${mode}"]`)].find(el => el.offsetParent !== null);
+            if (visible) visible.focus();
+            if (typeof gtag === 'function') gtag('event', 'mode_switch', { mode });
         });
     });
 }
 
-/* --- 2. Modal Logic --- */
+/* --- 2. Mobile / tablet menu --- */
+const menuBtn = document.querySelector('.menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+function openMenu() {
+    mobileMenu.hidden = false;
+    menuBtn.setAttribute('aria-expanded', 'true');
+    menuBtn.setAttribute('aria-label', 'Close menu');
+    document.body.classList.add('menu-open');
+}
+
+function closeMenu() {
+    if (!mobileMenu || mobileMenu.hidden) return;
+    mobileMenu.hidden = true;
+    menuBtn.setAttribute('aria-expanded', 'false');
+    menuBtn.setAttribute('aria-label', 'Open menu');
+    document.body.classList.remove('menu-open');
+}
+
+function initMobileMenu() {
+    if (!menuBtn || !mobileMenu) return;
+
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.hidden ? openMenu() : closeMenu();
+    });
+
+    mobileMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', closeMenu));
+
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !mobileMenu.hidden) {
+            closeMenu();
+            menuBtn.focus();
+        }
+    });
+
+    window.matchMedia('(min-width: 1280px)').addEventListener('change', (e) => {
+        if (e.matches) closeMenu();
+    });
+}
+
+/* --- 3. Projects: modal + show all --- */
 const modal = document.getElementById('project-modal');
-const closeBtn = document.querySelector('.close-modal');
+const closeBtn = modal.querySelector('.close-modal');
 let lastFocusedElement = null;
 
 const FOCUSABLE = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
 
+function escapeHTML(str) {
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+}
+
 function openModal(projectId) {
-    const modalBody = document.getElementById('modal-body');
     const data = projectData[projectId];
     if (!data) return;
 
     const featureList = data.features.map(f => {
-        const text = document.createTextNode(f);
-        const li = document.createElement('li');
-        li.appendChild(text);
-        return li.outerHTML;
+        const metric = /\d+\+/.test(f) ? ' class="is-metric"' : '';
+        return `<li${metric}><svg class="icon" width="16" height="16"><use href="#i-check"/></svg><span>${escapeHTML(f)}</span></li>`;
     }).join('');
 
-    modalBody.innerHTML = `
-        <div class="modal-header">
-            <span class="badge" style="margin-bottom:10px; display:inline-block;">${data.client}</span>
-            <h2 class="modal-project-title" id="modal-title">${data.title}</h2>
+    document.getElementById('modal-client').textContent = data.client;
+    document.getElementById('modal-title').textContent = data.title;
+    document.getElementById('modal-body').innerHTML = `
+        <p class="modal-desc">${escapeHTML(data.desc)}</p>
+        <div class="modal-scope">
+            <h3 class="modal-heading">Key features and testing scope</h3>
+            <ul class="modal-list">${featureList}</ul>
         </div>
-        <p style="margin-bottom: 1.5rem;">${data.desc}</p>
-        <h4>Key Features & Testing Scope:</h4>
-        <ul class="modal-list">${featureList}</ul>
-        <h4>Tools & Tech:</h4>
-        <p style="color: var(--text-secondary); font-weight: 500;">${data.tools}</p>
+        <div class="modal-tools">
+            <h3 class="modal-heading">Tools and methods</h3>
+            <p>${escapeHTML(data.tools)}</p>
+        </div>
     `;
 
     lastFocusedElement = document.activeElement;
-    modal.style.display = "block";
+    modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
-    document.body.style.overflow = "hidden";
-
-    const firstFocusable = modal.querySelector(FOCUSABLE);
-    if (firstFocusable) firstFocusable.focus();
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
 }
 
 window.openModal = openModal;
 
+function isModalOpen() {
+    return modal.classList.contains('is-open');
+}
+
 function closeModal() {
-    modal.style.display = "none";
+    modal.classList.remove('is-open');
     modal.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = "";
+    document.body.style.overflow = '';
     if (lastFocusedElement) lastFocusedElement.focus();
 }
 
-if (closeBtn) {
+function initProjects() {
+    document.querySelectorAll('.project-open').forEach(btn => {
+        btn.addEventListener('click', () => openModal(btn.dataset.project));
+    });
+
     closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (event) => {
+        if (event.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+        if (!isModalOpen()) return;
+        if (e.key === 'Escape') closeModal();
+
+        if (e.key === 'Tab') {
+            const focusable = [...modal.querySelectorAll(FOCUSABLE)];
+            if (!focusable.length) return;
+            const first = focusable[0];
+            const last = focusable[focusable.length - 1];
+            if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+            else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        }
+    });
+
+    const showAll = document.querySelector('.show-all');
+    const list = document.getElementById('projects-list');
+    if (showAll && list) {
+        showAll.addEventListener('click', () => {
+            const expanded = list.classList.toggle('is-expanded');
+            showAll.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+            showAll.querySelector('.show-all-label').textContent = expanded ? 'Show fewer projects' : 'Show all 6 projects';
+            list.querySelectorAll('.animate-on-scroll').forEach(el => el.classList.add('fade-in'));
+        });
+    }
 }
 
-modal.addEventListener('click', (event) => {
-    if (event.target === modal) closeModal();
-});
-
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modal.style.display === 'block') closeModal();
-
-    if (e.key === 'Tab' && modal.style.display === 'block') {
-        const focusable = [...modal.querySelectorAll(FOCUSABLE)];
-        if (!focusable.length) return;
-        const first = focusable[0];
-        const last = focusable[focusable.length - 1];
-        if (e.shiftKey) {
-            if (document.activeElement === first) { e.preventDefault(); last.focus(); }
-        } else {
-            if (document.activeElement === last) { e.preventDefault(); first.focus(); }
-        }
-    }
-});
-
-/* --- 3. Back to Top --- */
+/* --- 4. Back to Top --- */
 function initBackToTop() {
     const backToTopBtn = document.getElementById('back-to-top');
     let ticking = false;
@@ -177,7 +256,7 @@ function initBackToTop() {
     window.addEventListener('scroll', () => {
         if (!ticking) {
             requestAnimationFrame(() => {
-                backToTopBtn.style.display = window.scrollY > 300 ? "block" : "none";
+                backToTopBtn.classList.toggle('is-visible', window.scrollY > 600);
                 ticking = false;
             });
             ticking = true;
@@ -189,38 +268,17 @@ function initBackToTop() {
     });
 }
 
-/* --- 4. Utilities --- */
-function initDarkMode() {
-    const toggleBtn = document.getElementById('theme-toggle');
-
-    const syncAriaPressed = () => {
-        const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        toggleBtn.setAttribute('aria-pressed', isDark ? 'true' : 'false');
-    };
-
-    syncAriaPressed();
-
-    requestAnimationFrame(() => {
-        document.body.classList.add('theme-ready');
-    });
-
-    toggleBtn.addEventListener('click', () => {
-        const current = document.documentElement.getAttribute('data-theme');
-        const next = current === 'dark' ? 'light' : 'dark';
-        document.documentElement.setAttribute('data-theme', next);
-        localStorage.setItem('theme', next);
-        syncAriaPressed();
-    });
-}
-
+/* --- 5. Utilities --- */
 function initSmoothScroll() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
-            e.preventDefault();
             const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
+            const targetElement = targetId === '#top' ? document.body : document.querySelector(targetId);
+            if (!targetElement) return;
+            e.preventDefault();
+            if (targetId === '#top') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
                 targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
             }
         });
@@ -242,11 +300,11 @@ function initAnimations() {
                 observer.unobserve(entry.target);
             }
         });
-    }, { threshold: 0, rootMargin: '0px' });
+    }, { threshold: 0, rootMargin: '0px 0px -40px 0px' });
 
     els.forEach(el => {
         const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight) {
+        if (rect.top < window.innerHeight && rect.height > 0) {
             el.classList.add('fade-in');
         } else {
             observer.observe(el);
@@ -254,22 +312,7 @@ function initAnimations() {
     });
 }
 
-function initNavbarScroll() {
-    const navbar = document.querySelector('.navbar');
-    let ticking = false;
-
-    window.addEventListener('scroll', () => {
-        if (!ticking) {
-            requestAnimationFrame(() => {
-                navbar.classList.toggle('scrolled', window.scrollY > 50);
-                ticking = false;
-            });
-            ticking = true;
-        }
-    }, { passive: true });
-}
-
 function initCopyrightYear() {
-    const yearSpan = document.getElementById('current-year');
-    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+    const year = new Date().getFullYear();
+    document.querySelectorAll('.current-year').forEach(el => { el.textContent = year; });
 }
