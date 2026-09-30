@@ -38,7 +38,10 @@ design/           Design source and developer handoff (see below)
 The v3 design lives in [`design/`](design/):
 - `portfolio-v3.pen` — the [pen.dev](https://pen.dev) file (open it in the Pen app; it is encrypted, so don't edit it as text)
 - `handoff/tokens.css` — the design tokens used in `styles.css`
-- `handoff/png/` — exported frames for desktop, tablet and mobile, plus the handoff spec (`00-handoff-spec.png`)
+- `handoff/png/00-handoff-spec.png` — the handoff spec (tokens, typography, breakpoints, interactions)
+- `images/generated.webp` — the portrait used inside the `.pen` file (keep it next to the `.pen`)
+
+Frame previews aren't stored in the repo; export them from the `.pen` file when needed.
 
 `CLAUDE.md` lists the frame IDs and implementation rules for AI coding agents.
 
