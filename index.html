@@ -38,7 +38,7 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet"></noscript>
 
-  <link rel="stylesheet" href="styles.css?v=3.1">
+  <link rel="stylesheet" href="styles.css?v=3.2">
   <!-- Google Analytics — ganti G-D98GPD5S0B dengan Measurement ID kamu -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-D98GPD5S0B"></script>
   <script>
@@ -390,118 +390,50 @@
   <!-- ============ LITE MODE ============ -->
   <div class="view view-lite" id="view-lite">
     <a class="skip-link" href="#lite-main">Skip to content</a>
-    <header class="lite-bar glass-bar">
-      <div class="lite-identity">
-        <span class="wordmark">Amin Hamzah</span>
-        <span class="lite-role">QA Engineer, Jakarta</span>
-      </div>
-      <div class="lite-bar-right">
-        <a href="assets/cv-amin-hamzah.pdf" class="btn btn-soft btn-sm lite-cv-top" download>Download CV</a>
-        <div class="mode-switch" role="group" aria-label="Page mode">
-          <button type="button" class="mode-seg" data-set-mode="lite" aria-pressed="true">
-            <svg class="icon" width="14" height="14"><use href="#i-article"/></svg><span>Lite</span>
-          </button>
-          <button type="button" class="mode-seg" data-set-mode="full" aria-pressed="false">
-            <svg class="icon" width="14" height="14"><use href="#i-squares-four"/></svg><span>Full</span>
-          </button>
-        </div>
-      </div>
-    </header>
 
     <main class="lite-main" id="lite-main" tabindex="-1">
-      <section class="sheet glass-card">
-        <div class="lite-intro">
-          <span class="eyebrow"><span class="dot"></span><span class="eyebrow-long">Open to QA collaborations · Jakarta</span><span class="eyebrow-short">Open to QA collaborations</span></span>
-          <span class="lite-role-mobile">QA Engineer, Jakarta</span>
-          <p class="lite-lead">I test banking software. Currently at Bank Raya Indonesia, previously on Kopra at Bank Mandiri and on merchant, payment terminal and ATM systems at BCA.</p>
-          <p class="lite-p">I started in IT support at Kominfo Jakarta Pusat, which is where I learned the value of system reliability.</p>
-          <a href="assets/cv-amin-hamzah.pdf" class="btn btn-soft lite-cv-inline" download>Download CV</a>
-          <div class="lite-links">
-            <a href="https://linkedin.com/in/aminhamzah13" target="_blank" rel="noopener">LinkedIn<svg class="icon" width="14" height="14"><use href="#i-arrow-up-right"/></svg></a>
-            <a href="mailto:aminhamzah.it@gmail.com">Email<svg class="icon" width="14" height="14"><use href="#i-arrow-up-right"/></svg></a>
-            <a href="https://wa.me/6281324624422" target="_blank" rel="noopener">WhatsApp<svg class="icon" width="14" height="14"><use href="#i-arrow-up-right"/></svg></a>
+      <!-- Profile card -->
+      <section class="lite-card lite-profile glass-card" aria-labelledby="lite-name">
+        <div class="lite-top">
+          <span class="lite-avatar" aria-hidden="true"><img src="images/avatar-v3.webp" alt="" width="920" height="840" decoding="async"></span>
+          <div class="mode-switch" role="group" aria-label="Page mode">
+            <button type="button" class="mode-seg" data-set-mode="lite" aria-pressed="true">
+              <svg class="icon" width="14" height="14"><use href="#i-article"/></svg><span>Lite</span>
+            </button>
+            <button type="button" class="mode-seg" data-set-mode="full" aria-pressed="false">
+              <svg class="icon" width="14" height="14"><use href="#i-squares-four"/></svg><span>Full</span>
+            </button>
           </div>
         </div>
+        <div class="lite-name-block">
+          <h1 class="lite-name" id="lite-name">Amin Hamzah</h1>
+          <span class="lite-role">QA Engineer, Jakarta</span>
+        </div>
+        <span class="eyebrow"><span class="dot"></span>Open to QA collaborations</span>
+        <p class="lite-lead">I test banking software. Currently at Bank Raya Indonesia, previously on Kopra at Bank Mandiri and on merchant, payment terminal and ATM systems at BCA.</p>
+        <p class="lite-p">I started in IT support at Kominfo Jakarta Pusat, which is where I learned the value of system reliability.</p>
+        <div class="lite-actions">
+          <a href="assets/cv-amin-hamzah.pdf" class="btn btn-primary lite-cv" download>
+            <svg class="icon" width="16" height="16"><use href="#i-download-simple"/></svg><span>Download CV</span>
+          </a>
+          <a href="https://wa.me/6281324624422" target="_blank" rel="noopener" class="icon-btn" aria-label="WhatsApp"><svg class="icon" width="18" height="18"><use href="#i-whatsapp-logo"/></svg></a>
+          <a href="mailto:aminhamzah.it@gmail.com" class="icon-btn" aria-label="Email"><svg class="icon" width="18" height="18"><use href="#i-envelope-simple"/></svg></a>
+          <a href="https://linkedin.com/in/aminhamzah13" target="_blank" rel="noopener" class="icon-btn" aria-label="LinkedIn"><svg class="icon" width="18" height="18"><use href="#i-linkedin-logo"/></svg></a>
+        </div>
+        <a href="?mode=full" class="quick-read lite-full-link" data-set-mode="full">Want the details? See the full version →</a>
         <!-- TODO(dummy): "How I work" = opini/gaya kerja, pastikan sesuai cara kerja kamu -->
         <div class="lite-how">
           <h2 class="lite-how-title">How I work</h2>
           <ol class="principles">
-            <li><span class="num">1</span><span>Read the requirement twice, then list everything that could go wrong.</span></li>
-            <li><span class="num">2</span><span>Test the unhappy path first: timeouts, retries and partial failures.</span></li>
-            <li><span class="num">3</span><span>Write every bug so a developer can reproduce it in one try.</span></li>
+            <li><span class="num">1.</span><span>Read the requirement twice, then list everything that could go wrong.</span></li>
+            <li><span class="num">2.</span><span>Test the unhappy path first: timeouts, retries and partial failures.</span></li>
+            <li><span class="num">3.</span><span>Write every bug so a developer can reproduce it in one try.</span></li>
           </ol>
         </div>
       </section>
 
-      <section class="sheet glass-card sheet-work">
-        <div class="lite-block">
-          <h2 class="lite-heading">Work projects</h2>
-          <!-- TODO(dummy): project Bank Raya & metrik BCA masih data dummy — ganti sebelum publish -->
-          <div class="lite-project">
-            <h3>Digital banking app, Bank Raya</h3>
-            <p>Mobile banking for retail customers: account opening with e-KYC, BI-FAST transfers and transaction history.</p>
-            <p class="lite-metric">I own a 200+ case regression suite that runs every sprint.</p>
-            <span class="lite-tools">Jira, Postman, SIT, UAT, regression</span>
-          </div>
-          <div class="lite-project">
-            <h3>Kopra, Bank Mandiri</h3>
-            <p>Corporate cash management: intrabank, interbank and file-upload transfers, bill payments like PLN, Telkom and PDAM, and payroll.</p>
-            <p class="lite-metric">150+ scenarios, no critical bugs at launch.</p>
-            <span class="lite-tools">Jira, Figma, SIT, UAT, regression</span>
-          </div>
-          <div class="lite-project">
-            <h3>Merchant BCA, BCA</h3>
-            <p>Merchant onboarding and verification, the information dashboard, and integration with backend verification systems.</p>
-            <p class="lite-metric">120+ test cases across 3 release cycles.</p>
-            <span class="lite-tools">AS400, Postman, TeMan</span>
-          </div>
-          <div class="lite-project">
-            <h3>EDC, BCA</h3>
-            <p>Credit, debit and QRIS payments, plus refund, void and installment flows, tested on terminals with cross-functional teams.</p>
-            <p class="lite-metric">60+ transaction scenarios on 4 terminal models.</p>
-            <span class="lite-tools">BDS, hardware terminals</span>
-          </div>
-          <div class="lite-project">
-            <h3>OASE, BCA</h3>
-            <p>ATM lifecycle tracking, accessory inventory and operational reporting, validated against IDS.</p>
-            <p class="lite-metric">80+ scenarios, signed off in 2 UAT cycles.</p>
-            <span class="lite-tools">IDS, web and mobile</span>
-          </div>
-          <div class="lite-project">
-            <h3>ACCO, BCA</h3>
-            <p>Online credit card applications: data entry validation, document upload and verification, status tracking and notifications.</p>
-            <p class="lite-metric">95+ scenarios, 14 defects caught before UAT sign-off.</p>
-            <span class="lite-tools">UAT, SIT, web</span>
-          </div>
-        </div>
-
-        <hr class="divider">
-
-        <!-- TODO(dummy): sample work masih data dummy — ganti sebelum publish -->
-        <div class="lite-block lite-block-tight">
-          <h2 class="lite-heading">Sample work</h2>
-          <article class="lite-artifact">
-            <div class="artifact-top"><span class="artifact-id">TC-KOP-014</span><span class="status status-pass">Passed</span></div>
-            <h3 class="lite-artifact-title">Interbank transfer via bulk file upload</h3>
-            <dl class="fields">
-              <div class="field"><dt>Given</dt><dd>A maker uploads a 500-row CSV with 3 invalid account numbers.</dd></div>
-              <div class="field"><dt>When</dt><dd>The file is validated and submitted for approval.</dd></div>
-              <div class="field"><dt>Then</dt><dd>3 rows are rejected with a reason, 497 are queued, and the total amount matches.</dd></div>
-            </dl>
-          </article>
-          <article class="lite-artifact">
-            <div class="artifact-top"><span class="artifact-id">BUG-KOP-221</span><span class="status status-warn">Critical, fixed</span></div>
-            <h3 class="lite-artifact-title">Payroll debited twice when approval is retried after a timeout</h3>
-            <dl class="fields">
-              <div class="field"><dt>Found</dt><dd>SIT, before launch.</dd></div>
-              <div class="field"><dt>Steps</dt><dd>Approve a payroll batch, force a gateway timeout, retry the approval.</dd></div>
-              <div class="field"><dt>Fix</dt><dd>Idempotency check on the approval request, verified in regression.</dd></div>
-            </dl>
-          </article>
-        </div>
-
-        <hr class="divider">
-
+      <!-- Resume card -->
+      <section class="lite-card lite-resume glass-card">
         <div class="lite-block">
           <h2 class="lite-heading">Experience</h2>
           <div class="lite-role-row is-current"><div><h3>Quality Assurance Engineer</h3><span class="lite-company">Bank Raya Indonesia</span></div><span class="lite-years">2026 - now</span></div>
@@ -510,9 +442,7 @@
           <div class="lite-role-row"><div><h3>IT Technical Support</h3><span class="lite-company">Dept. Kominfo Jakarta Pusat</span></div><span class="lite-years">2022 - 2023</span></div>
         </div>
 
-        <hr class="divider">
-
-        <div class="lite-block lite-block-tight">
+        <div class="lite-block">
           <h2 class="lite-heading">Toolkit</h2>
           <dl class="fields fields-toolkit">
             <div class="field"><dt>Testing</dt><dd>Manual end-to-end, regression, UAT, SIT, transaction flow, smoke and sanity</dd></div>
@@ -521,15 +451,15 @@
           </dl>
         </div>
 
-        <hr class="divider">
-
-        <div class="lite-contact">
+        <div class="lite-block lite-contact">
           <h2 class="lite-contact-title">Open to QA collaborations</h2>
           <p>Let's talk about how I can help your team ship with confidence.</p>
           <div class="lite-contact-actions">
-            <a href="https://wa.me/6281324624422?text=Hello%20Amin,%20I%20am%20interested%20in%20your%20QA%20services%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener" class="btn btn-primary"><svg class="icon" width="16" height="16"><use href="#i-whatsapp-logo"/></svg><span>WhatsApp me</span></a>
-            <a href="mailto:aminhamzah.it@gmail.com" class="btn btn-outline"><svg class="icon" width="16" height="16"><use href="#i-envelope-simple"/></svg><span>Send email</span></a>
-            <a href="https://linkedin.com/in/aminhamzah13" target="_blank" rel="noopener" class="btn btn-outline"><svg class="icon" width="16" height="16"><use href="#i-linkedin-logo"/></svg><span>LinkedIn</span></a>
+            <a href="https://wa.me/6281324624422?text=Hello%20Amin,%20I%20am%20interested%20in%20your%20QA%20services%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener" class="btn btn-primary btn-block"><svg class="icon" width="16" height="16"><use href="#i-whatsapp-logo"/></svg><span>WhatsApp me</span></a>
+            <div class="lite-contact-row">
+              <a href="mailto:aminhamzah.it@gmail.com" class="btn btn-outline btn-block"><svg class="icon" width="16" height="16"><use href="#i-envelope-simple"/></svg><span>Send email</span></a>
+              <a href="https://linkedin.com/in/aminhamzah13" target="_blank" rel="noopener" class="btn btn-outline btn-block"><svg class="icon" width="16" height="16"><use href="#i-linkedin-logo"/></svg><span>LinkedIn</span></a>
+            </div>
           </div>
         </div>
       </section>
@@ -552,7 +482,7 @@
     </div>
   </div>
 
-  <script src="script.js?v=3.1" defer></script>
+  <script src="script.js?v=3.2" defer></script>
 
   <script type="application/ld+json">
   {
