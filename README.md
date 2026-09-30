@@ -31,19 +31,10 @@ styles.css        Tokens, components, breakpoints
 script.js         Mode toggle, menu, project modal data (projectData), animations
 assets/           CV (cv-amin-hamzah.pdf)
 images/           Avatar, favicons, OG image
-design/           Design source and developer handoff (see below)
 ```
 
 ## Design source
-The v3 design lives in [`design/`](design/):
-- `portfolio-v3.pen` — the [pen.dev](https://pen.dev) file (open it in the Pen app; it is encrypted, so don't edit it as text)
-- `handoff/tokens.css` — the design tokens used in `styles.css`
-- `handoff/png/00-handoff-spec.png` — the handoff spec (tokens, typography, breakpoints, interactions)
-- `images/generated.webp` — the portrait used inside the `.pen` file (keep it next to the `.pen`)
-
-Frame previews aren't stored in the repo; export them from the `.pen` file when needed.
-
-`CLAUDE.md` lists the frame IDs and implementation rules for AI coding agents.
+The v3 design was made in [pen.dev](https://pen.dev). The design file and the AI agent guide (`design/`, `CLAUDE.md`) are kept locally and listed in `.gitignore`, so the repo only contains what the site serves. The design tokens are mirrored at the top of `styles.css`.
 
 ## Run locally
 ```bash
