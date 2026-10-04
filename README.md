@@ -2,13 +2,13 @@
 
 > Portfolio website of Amin Hamzah, QA Engineer with 2+ years experience in Banking & Fintech (Bank Raya, Bank Mandiri, BCA).
 
-🌐 **Live:** [aminhamzah13.github.io/aminhamzah](https://aminhamzah13.github.io/aminhamzah/)
+🌐 **Live:** [aminhamzah.com](https://aminhamzah.com/)
 
 ## Two modes, one page
 | Mode | What it shows | Direct link |
 |---|---|---|
-| **Full** (default) | Hero, services, journey, project cards with detail modal, sample work, skills, contact | [`?mode=full`](https://aminhamzah13.github.io/aminhamzah/?mode=full) |
-| **Lite** | Single-column résumé view for a quick read | [`?mode=lite`](https://aminhamzah13.github.io/aminhamzah/?mode=lite) |
+| **Full** (default) | Hero, services, journey, project cards with detail modal, sample work, skills, contact | [`?mode=full`](https://aminhamzah.com/?mode=full) |
+| **Lite** | Single-column résumé view for a quick read | [`?mode=lite`](https://aminhamzah.com/?mode=lite) |
 
 Visitors switch with the toggle in the top bar. The choice is remembered only when they click it; a `?mode=` link opens that mode without saving it.
 
