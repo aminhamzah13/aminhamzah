@@ -43,7 +43,7 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet"></noscript>
 
-  <link rel="stylesheet" href="styles.css?v=3.3">
+  <link rel="stylesheet" href="styles.css?v=3.4">
   <!-- Google Analytics — ganti G-D98GPD5S0B dengan Measurement ID kamu -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-D98GPD5S0B"></script>
   <script>
@@ -289,6 +289,28 @@
           <button type="button" class="btn btn-outline btn-block show-all" aria-controls="projects-list" aria-expanded="false">
             <span class="show-all-label">Show all 6 projects</span><svg class="icon" width="16" height="16"><use href="#i-caret-down"/></svg>
           </button>
+
+          <div class="side-project">
+            <div class="side-head">
+              <h3 class="side-title">Side project</h3>
+              <p class="side-sub">Built on my own time, free for anyone learning test automation.</p>
+            </div>
+            <article class="featured side-card glass-card">
+              <div class="featured-main">
+                <div class="featured-top"><span class="project-client"><span class="side-client-long">Personal project · playwright.aminhamzah.com</span><span class="side-client-short">Personal project</span></span><span class="badge badge-accent">Live</span></div>
+                <h4 class="featured-title">Playwright Academy</h4>
+                <p class="featured-desc">A free Playwright course in Bahasa Indonesia that I write and maintain: from the first test to CI/CD and AI, with Python and TypeScript examples and a hands-on playground.</p>
+                <span class="project-tools">Playwright, Python, TypeScript, CI/CD</span>
+              </div>
+              <div class="featured-metric">
+                <span class="featured-value">17</span>
+                <span class="featured-label">modules, each with Python and TypeScript examples</span>
+              </div>
+              <a href="https://playwright.aminhamzah.com/" target="_blank" rel="noopener" class="btn btn-outline side-cta">
+                <span>Visit the academy</span><svg class="icon" width="16" height="16"><use href="#i-arrow-up-right"/></svg>
+              </a>
+            </article>
+          </div>
         </div>
       </section>
 
@@ -340,6 +362,7 @@
             <div class="skill-group">
               <h3 class="skill-label">Tools and environment</h3>
               <ul class="chips">
+                <li class="chip">Playwright</li><li class="chip">Python</li><li class="chip">TypeScript</li>
                 <li class="chip">Jira</li><li class="chip">Postman</li><li class="chip">Figma</li><li class="chip">TeMan</li>
                 <li class="chip">AS400</li><li class="chip">IDS / BDS</li><li class="chip">MySQL</li><li class="chip">Linux</li>
               </ul>
@@ -448,10 +471,15 @@
         </div>
 
         <div class="lite-block">
+          <h2 class="lite-heading">Side project</h2>
+          <div class="lite-role-row lite-side"><div><h3>Playwright Academy</h3><span class="lite-company">Free course, 17 modules · playwright.aminhamzah.com</span></div><a href="https://playwright.aminhamzah.com/" target="_blank" rel="noopener" class="lite-years lite-link">Visit ↗</a></div>
+        </div>
+
+        <div class="lite-block">
           <h2 class="lite-heading">Toolkit</h2>
           <dl class="fields fields-toolkit">
             <div class="field"><dt>Testing</dt><dd>Manual end-to-end, regression, UAT, SIT, transaction flow, smoke and sanity</dd></div>
-            <div class="field"><dt>Tools</dt><dd>Jira, Postman, Figma, TeMan, AS400, IDS / BDS, MySQL, Linux</dd></div>
+            <div class="field"><dt>Tools</dt><dd>Playwright, Python, TypeScript, Jira, Postman, Figma, TeMan, AS400, IDS / BDS, MySQL, Linux</dd></div>
             <div class="field"><dt>Training</dt><dd>Selenium and Katalon, Cypress E2E and manual API testing (2025). AWS and Alibaba Cloud, DevOps Fundamentals (2023).</dd></div>
           </dl>
         </div>
@@ -509,6 +537,17 @@
       "mainEntity": { "@id": "https://aminhamzah.com/#person" }
     },
     {
+      "@type": "Course",
+      "@id": "https://playwright.aminhamzah.com/#course",
+      "name": "Playwright Academy",
+      "url": "https://playwright.aminhamzah.com/",
+      "description": "Free Playwright test automation course in Bahasa Indonesia: 17 modules from the first test to CI/CD and AI, with Python and TypeScript examples.",
+      "inLanguage": "id",
+      "isAccessibleForFree": true,
+      "author": { "@id": "https://aminhamzah.com/#person" },
+      "provider": { "@id": "https://aminhamzah.com/#person" }
+    },
+    {
     "@type": "Person",
     "@id": "https://aminhamzah.com/#person",
     "name": "Amin Hamzah",
@@ -530,7 +569,8 @@
     ],
     "knowsAbout": [
       "Manual Testing", "API Testing", "UAT", "SIT",
-      "Regression Testing", "Banking QA", "Postman", "Jira"
+      "Regression Testing", "Banking QA", "Postman", "Jira",
+      "Test Automation", "Playwright", "Python", "TypeScript"
     ],
     "worksFor": {
       "@type": "Organization",
