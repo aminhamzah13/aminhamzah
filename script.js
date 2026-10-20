@@ -14,75 +14,82 @@ document.addEventListener('DOMContentLoaded', () => {
 
 /* --- Data: Project Details --- */
 const projectData = {
-    // TODO(dummy): isi modal Bank Raya diturunkan dari teks card desain v3 — ganti dengan data asli sebelum publish
     raya: {
-        title: "Digital banking app",
-        client: "Bank Raya Indonesia",
-        desc: "Mobile banking for retail customers: account opening with e-KYC, BI-FAST transfers and transaction history.",
+        title: "Greenbanking",
+        client: "Bank Raya Indonesia (via IGLO)",
+        desc: "Primary tester for the Greenbanking feature, from test design through UAT and deployment checks.",
         features: [
-            "Account opening with e-KYC.",
-            "BI-FAST transfers.",
-            "Transaction history.",
-            "200+ case regression suite, run every sprint."
+            "Designed and executed 50+ test cases; validated frontend and backend behavior.",
+            "Presented UAT results to the squad and product teams, and verified deployment changes.",
+            "Found an API error handling gap in the report screen; verified the fix that adds an error state and a Try Again action.",
+            "Also on Bank Raya: SIT for Data Update Reminders (forced update and push notification flows) and MVO frontend improvements, with 200+ test cases executed across projects."
         ],
-        tools: "Jira, Postman, SIT, UAT"
+        tools: "Jira, Bruno, Postman, DBeaver (PostgreSQL, MySQL), Redis client, pytest (AI-assisted, personally reviewed)"
     },
     kopra: {
         title: "Kopra by Mandiri",
-        client: "PT Bank Mandiri",
-        desc: "Corporate cash management platform serving enterprise clients — validated across 150+ test scenarios with 0 critical bugs at launch.",
+        client: "Bank Mandiri (via Adi Data Informatika)",
+        desc: "Corporate cash management on web and mobile, tested through SIT, UAT, regression and release testing.",
         features: [
-            "Cash Management: Intrabank, Interbank, Manual & File Upload Transfers.",
-            "Bill Payment Module: PLN, Telkom, PDAM, etc.",
-            "Payroll Management System.",
-            "Validated 150+ test scenarios ensuring 0 critical bugs at launch."
+            "Intrabank and interbank transfers.",
+            "Batch uploads, bill payments and payroll.",
+            "Found that batch upload validation accepted duplicate records; retested the fix and confirmed the system response and exported data.",
+            "About 30 passing test cases a day, with results and defects documented in Jira."
         ],
-        tools: "Jira, Figma, Manual Testing (SIT/UAT/Regression)"
+        tools: "Jira, SIT, UAT, regression and release testing"
+    },
+    edc: {
+        title: "EDC/APOS and QRIS",
+        client: "Bank Central Asia (via DIKA)",
+        desc: "Payment terminal and app transactions, reconciled against the bank's backend systems.",
+        features: [
+            "Debit, credit, QRIS, refund and installment transactions on EDC/APOS.",
+            "Paid APOS-generated QRIS codes with BCA QRIS and other payment apps, then validated the outcome in the backend.",
+            "Reconciled amounts, statuses and transaction references in AS400, IDS and BDS."
+        ],
+        tools: "TeMan, AS400, IDS, BDS"
     },
     mcb: {
         title: "Merchant BCA (MCB)",
-        client: "PT Bank Central Asia",
-        desc: "Mobile app for BCA merchant onboarding — validated end-to-end from registration flow to backend API integration.",
+        client: "Bank Central Asia (via DIKA)",
+        desc: "Merchant app flows for terminal requests and service reports.",
         features: [
-            "Merchant Onboarding & Verification flows.",
-            "Information dashboard & service management.",
-            "Integration with backend verification systems."
+            "Validated EDC/APOS requests in Merchant BCA.",
+            "Validated damage reports in Merchant BCA.",
+            "Logged test results and defects in TeMan."
         ],
-        tools: "AS400, Postman, TeMan, Excel"
-    },
-    edc: {
-        title: "EDC & Transaction Apps",
-        client: "PT Bank Central Asia",
-        desc: "Payment terminal QA covering Credit, Debit, QRIS, refunds, voids, and installment transactions.",
-        features: [
-            "Credit & Debit Card processing validation.",
-            "QRIS Payment Gateway testing.",
-            "Refund, Void, and Installment workflows.",
-            "Coordinated with cross-functional teams for device testing."
-        ],
-        tools: "Manual Testing, BDS, Hardware Terminals"
+        tools: "TeMan"
     },
     oase: {
         title: "OASE ATM Management",
-        client: "PT Bank Central Asia",
-        desc: "ATM network management system — validated lifecycle tracking, inventory, and operational reporting integrity.",
+        client: "Bank Central Asia (via DIKA)",
+        desc: "ATM network management system.",
         features: [
-            "ATM lifecycle management and tracking.",
-            "Accessory inventory and operational reporting.",
-            "Backend validation using IDS system."
+            "Validated ATM inventory.",
+            "Validated technician and vendor assignments.",
+            "Used an ATM simulator for transfers and for checks of exchange-rate updates and decimal display."
         ],
-        tools: "IDS, Web & Mobile Testing"
+        tools: "TeMan, ATM simulator"
+    },
+    elastics: {
+        title: "Elastics",
+        client: "Bank Central Asia (via DIKA)",
+        desc: "Terminal integration and vendor inventory system.",
+        features: [
+            "Validated terminal integrations.",
+            "Validated vendor inventory."
+        ],
+        tools: "TeMan"
     },
     acco: {
         title: "Apply Credit Card Online (ACCO)",
-        client: "PT Bank Central Asia",
-        desc: "Credit card application portal — validated user data flows, document verification, status tracking, and notification systems.",
+        client: "Bank Central Asia (via DIKA)",
+        desc: "Online credit card application.",
         features: [
-            "User data entry and validation.",
-            "Document upload and verification flows.",
-            "Status tracking and notification systems."
+            "Tested UI wording across the application.",
+            "Tested the normal application flows."
         ],
-        tools: "UAT, SIT, Web Testing"
+        tools: "TeMan"
     }
 };
 
