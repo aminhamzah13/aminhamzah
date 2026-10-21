@@ -276,7 +276,7 @@ function initSmoothScroll() {
 function initScrollSpy() {
     const links = [...document.querySelectorAll('.nav-links .nav-link')];
     if (!links.length || !('IntersectionObserver' in window)) return;
-    const linkFor = { services: '#services', about: '#about', projects: '#projects', 'sample-work': '#projects', skills: '#skills' };
+    const linkFor = { projects: '#projects', 'sample-work': '#sample-work', skills: '#skills' };
     const setActive = (href) => links.forEach(l => {
         const on = l.getAttribute('href') === href;
         l.classList.toggle('is-active', on);

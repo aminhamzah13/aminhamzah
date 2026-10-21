@@ -43,7 +43,7 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet"></noscript>
 
-  <link rel="stylesheet" href="styles.css?v=3.5">
+  <link rel="stylesheet" href="styles.css?v=3.6">
   <!-- Google Analytics — ganti G-D98GPD5S0B dengan Measurement ID kamu -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-D98GPD5S0B"></script>
   <script>
@@ -89,52 +89,27 @@
     <a class="skip-link" href="#main-content">Skip to content</a>
 
     <header class="navbar">
-      <div class="nav-bar glass-bar">
+      <div class="nav-bar hairline">
         <a href="#top" class="wordmark" aria-label="Amin Hamzah, back to top">Amin Hamzah</a>
 
         <nav class="nav-links" aria-label="Primary">
-          <a href="#services" class="nav-link">Services</a>
-          <a href="#about" class="nav-link">About</a>
           <a href="#projects" class="nav-link">Work</a>
-          <a href="#skills" class="nav-link">Skills</a>
+          <a href="#sample-work" class="nav-link">Bugs</a>
+          <a href="#skills" class="nav-link">Toolkit</a>
         </nav>
 
         <div class="nav-actions">
-          <a href="#contact" class="btn btn-outline btn-sm nav-contact">Contact me</a>
           <div class="mode-switch" role="group" aria-label="Page mode">
-            <button type="button" class="mode-seg" data-set-mode="lite" aria-pressed="false">
-              <svg class="icon" width="14" height="14"><use href="#i-article"/></svg><span>Lite</span>
-            </button>
             <button type="button" class="mode-seg" data-set-mode="full" aria-pressed="true">
               <svg class="icon" width="14" height="14"><use href="#i-squares-four"/></svg><span>Full</span>
             </button>
+            <button type="button" class="mode-seg" data-set-mode="lite" aria-pressed="false">
+              <svg class="icon" width="14" height="14"><use href="#i-article"/></svg><span>Lite</span>
+            </button>
           </div>
-          <button type="button" class="menu-btn" aria-label="Open menu" aria-controls="mobile-menu" aria-expanded="false">
-            <svg class="icon icon-open" width="20" height="20"><use href="#i-list"/></svg>
-            <svg class="icon icon-close" width="20" height="20"><use href="#i-x"/></svg>
-          </button>
         </div>
       </div>
     </header>
-
-    <!-- Mobile / tablet menu overlay -->
-    <div class="mobile-menu" id="mobile-menu" hidden>
-      <nav class="menu-list" aria-label="Mobile">
-        <a href="#services" class="menu-item"><span class="menu-left"><span class="menu-index">01</span><span class="menu-label">Services</span></span><svg class="icon" width="20" height="20"><use href="#i-arrow-right"/></svg></a>
-        <a href="#about" class="menu-item"><span class="menu-left"><span class="menu-index">02</span><span class="menu-label">About</span></span><svg class="icon" width="20" height="20"><use href="#i-arrow-right"/></svg></a>
-        <a href="#projects" class="menu-item"><span class="menu-left"><span class="menu-index">03</span><span class="menu-label">Work</span></span><svg class="icon" width="20" height="20"><use href="#i-arrow-right"/></svg></a>
-        <a href="#skills" class="menu-item"><span class="menu-left"><span class="menu-index">04</span><span class="menu-label">Skills</span></span><svg class="icon" width="20" height="20"><use href="#i-arrow-right"/></svg></a>
-        <a href="#contact" class="menu-item"><span class="menu-left"><span class="menu-index">05</span><span class="menu-label">Contact</span></span><svg class="icon" width="20" height="20"><use href="#i-arrow-right"/></svg></a>
-      </nav>
-      <div class="menu-cta">
-        <a href="assets/cv-amin-hamzah.pdf" class="btn btn-primary btn-block" download>
-          <svg class="icon" width="16" height="16"><use href="#i-download-simple"/></svg><span>Download CV</span>
-        </a>
-        <a href="https://wa.me/6281324624422?text=Hello%20Amin,%20I%20am%20interested%20in%20your%20QA%20services%20and%20would%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener" class="btn btn-outline btn-block">
-          <svg class="icon" width="16" height="16"><use href="#i-whatsapp-logo"/></svg><span>WhatsApp me</span>
-        </a>
-      </div>
-    </div>
 
     <main id="main-content" tabindex="-1">
 
@@ -144,56 +119,42 @@
           <div class="hero-text">
             <div class="eyebrow-row">
               <span class="hero-avatar" aria-hidden="true"><img src="images/avatar-v5.webp" alt="" width="920" height="840" decoding="async"></span>
-              <span class="eyebrow"><span class="dot"></span><span class="eyebrow-long">Open to QA collaborations · Jakarta</span><span class="eyebrow-short">Open to QA collaborations</span></span>
+              <span class="status-chip hairline"><span class="status-main">Open to QA collaborations</span><span class="status-sep" aria-hidden="true"></span><span class="status-meta">Jakarta</span></span>
             </div>
             <h1 class="hero-title"><span class="sr-only">Amin Hamzah, </span>QA Engineer specializing in banking systems</h1>
             <p class="hero-sub">I test banking software. Currently at Bank Raya Indonesia, previously at Bank Mandiri and BCA.</p>
-            <div class="hero-actions">
-              <div class="hero-buttons">
-                <a href="#projects" class="btn btn-primary btn-lg hero-primary">
-                  <span>View my work</span><svg class="icon" width="16" height="16"><use href="#i-arrow-down"/></svg>
-                </a>
-                <div class="hero-secondary">
-                  <a href="assets/cv-amin-hamzah.pdf" class="btn btn-outline btn-lg" download>
-                    <svg class="icon" width="16" height="16"><use href="#i-download-simple"/></svg><span>Download CV</span>
-                  </a>
-                  <a href="#contact" class="btn btn-outline btn-lg mobile-only">Contact me</a>
-                </div>
-              </div>
-              <a href="?mode=lite" class="quick-read" data-set-mode="lite">In a hurry? Read the 1-page version →</a>
+            <div class="hero-buttons">
+              <a href="#projects" class="btn btn-primary btn-lg">
+                <span>View my work</span><svg class="icon" width="16" height="16"><use href="#i-arrow-down"/></svg>
+              </a>
+              <a href="assets/cv-amin-hamzah.pdf" class="btn btn-outline btn-lg" download>
+                <svg class="icon" width="16" height="16"><use href="#i-download-simple"/></svg><span>Download CV</span>
+              </a>
             </div>
-            <dl class="metrics">
-              <div class="metric"><dt class="metric-value">3+</dt><dd class="metric-label"><span class="label-long">Years in banking QA</span><span class="label-short">Years in QA</span></dd></div>
-              <div class="metric"><dt class="metric-value">3</dt><dd class="metric-label"><span class="label-long">Banks: Raya, Mandiri, BCA</span><span class="label-short">Banks</span></dd></div>
-              <div class="metric"><dt class="metric-value">200+</dt><dd class="metric-label"><span class="label-long">Test cases executed at Bank Raya</span><span class="label-short">Test cases</span></dd></div>
-            </dl>
           </div>
           <div class="hero-visual">
             <div class="portrait glass-card">
               <img src="images/avatar-v5.webp" alt="Cartoon illustration of Amin Hamzah" width="920" height="840" loading="eager" fetchpriority="high" decoding="async">
             </div>
+            <dl class="evidence glass-card">
+              <div class="evidence-row"><dt>Years in banking QA</dt><dd>3+</dd></div>
+              <div class="evidence-row"><dt>Banks</dt><dd>Raya, Mandiri, BCA</dd></div>
+              <div class="evidence-row"><dt>Test cases executed at Bank Raya</dt><dd>200+</dd></div>
+            </dl>
           </div>
         </div>
       </section>
 
-      <!-- Services: "What I test" strip -->
-      <section id="services" class="services-section">
+      <!-- What I test -->
+      <section id="services" class="section">
         <div class="container">
-          <h2 class="strip-lead strip-lead-out">What I test</h2>
-          <div class="services-strip glass-card">
-            <span class="strip-lead strip-lead-in" aria-hidden="true">What I test</span>
-            <div class="service">
-              <svg class="icon service-icon" width="22" height="22"><use href="#i-magnifying-glass"/></svg>
-              <div class="service-text"><h3 class="service-title">Functional</h3><p class="service-desc">Business logic, SIT &amp; UAT</p></div>
-            </div>
-            <div class="service">
-              <svg class="icon service-icon" width="22" height="22"><use href="#i-device-mobile"/></svg>
-              <div class="service-text"><h3 class="service-title">Web and mobile</h3><p class="service-desc">Frontend flows, regression, release checks</p></div>
-            </div>
-            <div class="service">
-              <svg class="icon service-icon" width="22" height="22"><use href="#i-plugs-connected"/></svg>
-              <div class="service-text"><h3 class="service-title">API and data</h3><p class="service-desc">Bruno, Postman, SQL and Redis checks</p></div>
-            </div>
+          <div class="sec-head"><div class="sec-title-wrap"><span class="sec-index">01</span><h2 class="sec-title">What I test</h2></div><span class="sec-note">4 layers</span></div>
+          <div class="matrix glass-card" role="table" aria-label="What I test">
+            <div class="matrix-row matrix-head" role="row"><span role="columnheader">Layer</span><span role="columnheader">What I check</span><span role="columnheader" class="matrix-with">With</span></div>
+            <div class="matrix-row" role="row"><span role="cell" class="matrix-layer">UI flows</span><span role="cell">Business rules through SIT, UAT and regression on web and mobile</span><span role="cell" class="matrix-with">Jira, Figma</span></div>
+            <div class="matrix-row" role="row"><span role="cell" class="matrix-layer">API</span><span role="cell">Responses and error handling, e.g. the missing error state on a report screen</span><span role="cell" class="matrix-with">Bruno, Postman</span></div>
+            <div class="matrix-row" role="row"><span role="cell" class="matrix-layer">Data</span><span role="cell">Values in the database and cache after each step</span><span role="cell" class="matrix-with">DBeaver, Redis</span></div>
+            <div class="matrix-row" role="row"><span role="cell" class="matrix-layer">Release</span><span role="cell">Deployment changes verified after each release</span><span role="cell" class="matrix-with">Jira</span></div>
           </div>
         </div>
       </section>
@@ -201,11 +162,7 @@
       <!-- About / Journey -->
       <section id="about" class="section">
         <div class="container">
-          <hr class="divider">
-          <div class="section-head">
-            <h2 class="section-title">Professional journey</h2>
-            <p class="section-sub journey-intro">My career began in IT support, where troubleshooting complex networks taught me the value of system reliability.</p>
-          </div>
+          <div class="sec-head"><div class="sec-title-wrap"><span class="sec-index">02</span><h2 class="sec-title">Professional journey</h2></div><span class="sec-note">4 roles</span></div>
           <ol class="journey">
             <li class="journey-item is-current">
               <span class="journey-date">Jan 2026 – present</span>
@@ -234,111 +191,41 @@
         </div>
       </section>
 
-      <!-- Projects: featured + list -->
+      <!-- Work -->
       <section id="projects" class="section">
         <div class="container">
-          <hr class="divider">
-          <div class="section-head">
-            <h2 class="section-title">Work projects</h2>
-            <p class="section-sub">Real systems at real banks.</p>
-          </div>
-          <article class="featured glass-card">
-            <div class="featured-main">
-              <div class="featured-top"><span class="project-client">Bank Raya Indonesia</span><span class="badge badge-accent">Current</span></div>
-              <h3 class="featured-title">Greenbanking</h3>
-              <p class="featured-desc">Primary tester for the feature: designed and executed the test cases, validated frontend and backend behavior, presented UAT results to the squad and product teams, and verified deployment changes.</p>
-              <span class="project-tools">Jira, Bruno, Postman, DBeaver, Redis, SIT, UAT</span>
-            </div>
-            <div class="featured-metric">
-              <span class="featured-value">50+</span>
-              <span class="featured-label">test cases designed and executed for Greenbanking</span>
-            </div>
-            <button type="button" class="project-open featured-open" data-project="raya" aria-label="View details: Greenbanking"><svg class="icon" width="16" height="16"><use href="#i-arrow-up-right"/></svg></button>
+          <div class="sec-head"><div class="sec-title-wrap"><span class="sec-index">03</span><h2 class="sec-title">Work projects</h2></div><span class="sec-note">7 projects · Bank Raya, Mandiri, BCA</span></div>
+          <article class="case hairline">
+            <span class="case-meta">Greenbanking / Bank Raya / 2026 — now</span>
+            <h3 class="case-title">Primary tester for Greenbanking</h3>
+            <p class="case-desc">Designed and executed the test cases, validated frontend and backend behavior, presented UAT results and verified deployment changes.</p>
+            <div class="case-facts"><span>50+ test cases</span><span>SIT · UAT</span><span>Bruno · Postman · DBeaver</span></div>
+            <button type="button" class="case-link project-open" data-project="raya">Read the case →</button>
           </article>
-          <ul class="project-list" id="projects-list">
-            <li class="project-row">
-              <div class="row-title"><h3 class="row-name">Kopra by Mandiri</h3><span class="row-client">Bank Mandiri</span></div>
-              <p class="row-metric">About 30 passing test cases a day across SIT, UAT and regression</p>
-              <span class="tag">Web and mobile</span>
-              <button type="button" class="project-open" data-project="kopra" aria-label="View details: Kopra by Mandiri"><svg class="icon" width="16" height="16"><use href="#i-arrow-up-right"/></svg></button>
-            </li>
-            <li class="project-row">
-              <div class="row-title"><h3 class="row-name">EDC/APOS and QRIS</h3><span class="row-client">Bank Central Asia</span></div>
-              <p class="row-metric">Debit, credit, QRIS, refund and installment, reconciled in AS400, IDS and BDS</p>
-              <span class="tag">Terminal and app</span>
-              <button type="button" class="project-open" data-project="edc" aria-label="View details: EDC/APOS and QRIS"><svg class="icon" width="16" height="16"><use href="#i-arrow-up-right"/></svg></button>
-            </li>
-            <li class="project-row">
-              <div class="row-title"><h3 class="row-name">Merchant BCA (MCB)</h3><span class="row-client">Bank Central Asia</span></div>
-              <p class="row-metric">EDC/APOS requests and damage reports</p>
-              <span class="tag">Merchant app</span>
-              <button type="button" class="project-open" data-project="mcb" aria-label="View details: Merchant BCA (MCB)"><svg class="icon" width="16" height="16"><use href="#i-arrow-up-right"/></svg></button>
-            </li>
-            <li class="project-row">
-              <div class="row-title"><h3 class="row-name">OASE ATM management</h3><span class="row-client">Bank Central Asia</span></div>
-              <p class="row-metric">ATM inventory and technician and vendor assignments</p>
-              <span class="tag">Web system</span>
-              <button type="button" class="project-open" data-project="oase" aria-label="View details: OASE ATM management"><svg class="icon" width="16" height="16"><use href="#i-arrow-up-right"/></svg></button>
-            </li>
-            <li class="project-row">
-              <div class="row-title"><h3 class="row-name">Elastics</h3><span class="row-client">Bank Central Asia</span></div>
-              <p class="row-metric">Terminal integrations and vendor inventory</p>
-              <span class="tag">Web system</span>
-              <button type="button" class="project-open" data-project="elastics" aria-label="View details: Elastics"><svg class="icon" width="16" height="16"><use href="#i-arrow-up-right"/></svg></button>
-            </li>
-            <li class="project-row">
-              <div class="row-title"><h3 class="row-name">ACCO (Apply CC Online)</h3><span class="row-client">Bank Central Asia</span></div>
-              <p class="row-metric">UI wording and application flows</p>
-              <span class="tag">Web platform</span>
-              <button type="button" class="project-open" data-project="acco" aria-label="View details: ACCO (Apply CC Online)"><svg class="icon" width="16" height="16"><use href="#i-arrow-up-right"/></svg></button>
-            </li>
+          <ul class="prows" id="projects-list">
+            <li><button type="button" class="prow project-open" data-project="kopra"><span class="prow-name">Kopra by Mandiri</span><span class="prow-desc">Transfers, batch uploads, bill payments and payroll; about 30 passing test cases a day</span><span class="prow-client">Mandiri</span><span class="prow-go" aria-hidden="true">→</span></button></li>
+            <li><button type="button" class="prow project-open" data-project="edc"><span class="prow-name">EDC/APOS and QRIS</span><span class="prow-desc">Debit, credit, QRIS, refund and installment, reconciled in AS400, IDS and BDS</span><span class="prow-client">BCA</span><span class="prow-go" aria-hidden="true">→</span></button></li>
+            <li><button type="button" class="prow project-open" data-project="mcb"><span class="prow-name">Merchant BCA (MCB)</span><span class="prow-desc">EDC/APOS requests and damage reports</span><span class="prow-client">BCA</span><span class="prow-go" aria-hidden="true">→</span></button></li>
+            <li><button type="button" class="prow project-open" data-project="oase"><span class="prow-name">OASE ATM management</span><span class="prow-desc">ATM inventory, technician and vendor assignments</span><span class="prow-client">BCA</span><span class="prow-go" aria-hidden="true">→</span></button></li>
+            <li><button type="button" class="prow project-open" data-project="elastics"><span class="prow-name">Elastics</span><span class="prow-desc">Terminal integrations and vendor inventory</span><span class="prow-client">BCA</span><span class="prow-go" aria-hidden="true">→</span></button></li>
+            <li><button type="button" class="prow project-open" data-project="acco"><span class="prow-name">ACCO (Apply CC Online)</span><span class="prow-desc">UI wording and application flows</span><span class="prow-client">BCA</span><span class="prow-go" aria-hidden="true">→</span></button></li>
           </ul>
-          <button type="button" class="btn btn-outline btn-block show-all" aria-controls="projects-list" aria-expanded="false">
-            <span class="show-all-label">Show all 7 projects</span><svg class="icon" width="16" height="16"><use href="#i-caret-down"/></svg>
-          </button>
 
-          <div class="side-project">
-            <div class="side-head">
-              <h3 class="side-title">Side projects</h3>
-              <p class="side-sub">Free courses for anyone learning test automation. Code examples are written with AI assistance (Claude Code), then run and verified by me.</p>
+          <div class="side-projects">
+            <span class="mono-label">Side projects · on my own time</span>
+            <div class="side-grid">
+              <a class="side-tile hairline" href="https://playwright.aminhamzah.com/" target="_blank" rel="noopener">
+                <span class="side-name">Playwright Academy</span>
+                <span class="side-desc">17 modules and 3 practice apps</span>
+                <span class="side-url">playwright.aminhamzah.com ↗</span>
+              </a>
+              <a class="side-tile hairline" href="https://maestro.aminhamzah.com/" target="_blank" rel="noopener">
+                <span class="side-name">Maestro Academy</span>
+                <span class="side-desc">12 Android UI testing modules</span>
+                <span class="side-url">maestro.aminhamzah.com ↗</span>
+              </a>
             </div>
-            <article class="featured side-card glass-card">
-              <div class="featured-main">
-                <div class="featured-top"><span class="project-client"><span class="side-client-long">Personal project · playwright.aminhamzah.com</span><span class="side-client-short">Personal project</span></span><span class="badge badge-accent">Live</span></div>
-                <h4 class="featured-title">Playwright Academy and Playground</h4>
-                <p class="featured-desc">Indonesian-language Playwright modules with Python and TypeScript examples, plus TokoQA, KlinikQA and PerpusQA: practice apps for UI and API testing. Deployed on Cloudflare Pages and Workers.</p>
-                <span class="project-tools">Playwright, Python, TypeScript, Cloudflare</span>
-              </div>
-              <div class="featured-metric">
-                <span class="featured-value">17</span>
-                <span class="featured-label">modules and 3 practice apps</span>
-              </div>
-              <div class="side-ctas">
-                <a href="https://playwright.aminhamzah.com/" target="_blank" rel="noopener" class="btn btn-outline">
-                  <span>Visit the academy</span><svg class="icon" width="16" height="16"><use href="#i-arrow-up-right"/></svg>
-                </a>
-                <a href="https://playground.aminhamzah.com/" target="_blank" rel="noopener" class="btn btn-outline">
-                  <span>Open the playground</span><svg class="icon" width="16" height="16"><use href="#i-arrow-up-right"/></svg>
-                </a>
-              </div>
-            </article>
-            <article class="featured side-card glass-card">
-              <div class="featured-main">
-                <div class="featured-top"><span class="project-client"><span class="side-client-long">Personal project · maestro.aminhamzah.com</span><span class="side-client-short">Personal project</span></span><span class="badge badge-accent">Live</span></div>
-                <h4 class="featured-title">Maestro Academy</h4>
-                <p class="featured-desc">Android UI testing modules with Maestro and the Laundry Kiloan practice app. I designed the UI in pen.dev, directed the build with Claude Code and reviewed the Maestro test results.</p>
-                <span class="project-tools">Maestro, Android, pen.dev, Claude Code</span>
-              </div>
-              <div class="featured-metric">
-                <span class="featured-value">12</span>
-                <span class="featured-label">Android UI testing modules</span>
-              </div>
-              <div class="side-ctas">
-                <a href="https://maestro.aminhamzah.com/" target="_blank" rel="noopener" class="btn btn-outline">
-                  <span>Visit the academy</span><svg class="icon" width="16" height="16"><use href="#i-arrow-up-right"/></svg>
-                </a>
-              </div>
-            </article>
+            <p class="side-note">Code examples are written with AI assistance (Claude Code), then run and verified by me.</p>
           </div>
         </div>
       </section>
@@ -346,27 +233,17 @@
       <!-- Bugs I caught -->
       <section id="sample-work" class="section">
         <div class="container">
-          <hr class="divider">
-          <div class="section-head">
-            <h2 class="section-title">Bugs I caught</h2>
-            <p class="section-sub">Two real defects from bank projects, found in testing and retested after the fix.</p>
-          </div>
-          <div class="artifacts">
-            <article class="artifact glass-card">
-              <div class="artifact-top"><span class="artifact-id">Greenbanking · Bank Raya</span><span class="status status-pass">Fixed, verified</span></div>
-              <h3 class="artifact-title">Report screen had no handling for API errors</h3>
-              <dl class="fields">
-                <div class="field"><dt>Gap</dt><dd>When the report API failed, the screen gave the user no error state and no way to recover.</dd></div>
-                <div class="field"><dt>Verified</dt><dd>The released improvement shows an error state and reloads the report through a Try Again action.</dd></div>
-              </dl>
+          <div class="sec-head"><div class="sec-title-wrap"><span class="sec-index">04</span><h2 class="sec-title">Bugs I caught</h2></div><span class="sec-note">2 defects · fixed and verified</span></div>
+          <div class="bugs">
+            <article class="bug hairline">
+              <div class="bug-top"><span>Bug / Greenbanking / Bank Raya</span><span class="bug-status">Fixed, verified</span></div>
+              <h3 class="bug-title">Report screen had no handling for API errors</h3>
+              <p class="bug-text">No error state when the report API failed. The release adds an error state and a Try Again action, which I verified.</p>
             </article>
-            <article class="artifact glass-card">
-              <div class="artifact-top"><span class="artifact-id">Kopra · Bank Mandiri</span><span class="status status-pass">Fixed, verified</span></div>
-              <h3 class="artifact-title">Batch upload accepted duplicate records</h3>
-              <dl class="fields">
-                <div class="field"><dt>Gap</dt><dd>Batch upload validation let duplicate records through.</dd></div>
-                <div class="field"><dt>Verified</dt><dd>Retested the fix: the system response and the exported data matched expectations.</dd></div>
-              </dl>
+            <article class="bug hairline">
+              <div class="bug-top"><span>Bug / Kopra / Bank Mandiri</span><span class="bug-status">Fixed, verified</span></div>
+              <h3 class="bug-title">Batch upload accepted duplicate records</h3>
+              <p class="bug-text">Batch upload validation let duplicate records through. I retested the fix: the system response and the exported data matched expectations.</p>
             </article>
           </div>
         </div>
@@ -375,48 +252,15 @@
       <!-- Skills -->
       <section id="skills" class="section">
         <div class="container">
-          <hr class="divider">
-          <h2 class="section-title">Technical expertise</h2>
-          <div class="skills">
-            <div class="skill-group">
-              <h3 class="skill-label">Testing competencies</h3>
-              <ul class="chips">
-                <li class="chip">Manual testing</li><li class="chip">SIT</li><li class="chip">UAT</li><li class="chip">Regression</li><li class="chip">Smoke</li>
-                <li class="chip">API testing</li><li class="chip">Release verification</li><li class="chip">Defect tracking</li><li class="chip">Web and mobile</li>
-              </ul>
-            </div>
-            <div class="skill-group">
-              <h3 class="skill-label">Tools and data</h3>
-              <ul class="chips">
-                <li class="chip">Jira</li><li class="chip">Confluence</li><li class="chip">TeMan</li><li class="chip">Bruno</li><li class="chip">Postman</li><li class="chip">DBeaver</li><li class="chip">PostgreSQL</li>
-                <li class="chip">MySQL</li><li class="chip">Redis</li><li class="chip">AS400</li><li class="chip">IDS</li><li class="chip">BDS</li><li class="chip">Figma</li>
-              </ul>
-            </div>
-            <div class="skill-group">
-              <h3 class="skill-label">Automation</h3>
-              <div class="skill-body">
-                <ul class="chips">
-                  <li class="chip">Playwright</li><li class="chip">Maestro</li><li class="chip">pytest (AI-assisted)</li>
-                  <li class="chip">Selenium</li><li class="chip">Katalon</li><li class="chip">Cypress</li>
-                </ul>
-                <p class="skill-note">From personal projects and training.</p>
-              </div>
-            </div>
-            <div class="skill-group">
-              <h3 class="skill-label">Education and certifications</h3>
-              <ul class="certs">
-                <li class="cert"><span class="cert-name">S.Kom, Informatics Engineering, Esa Unggul University (GPA 3.40/4.00)</span><span class="cert-year">2020</span></li>
-                <li class="cert"><span class="cert-name">QA Selenium &amp; Katalon Bootcamp, Test Aplikasi Kamu</span><span class="cert-year">2025</span></li>
-                <li class="cert"><span class="cert-name">Manual API Testing and Cypress, Jago QA</span><span class="cert-year">2025</span></li>
-                <li class="cert"><span class="cert-name">QA Engineer, Digital Skola</span><span class="cert-year">2023</span></li>
-                <li class="cert"><span class="cert-name">Alibaba Cloud Certified Associate</span><span class="cert-year">2023</span></li>
-                <li class="cert"><span class="cert-name">AWS Cloud Architect training, KEMKOMINFO</span><span class="cert-year">2023</span></li>
-                <li class="cert"><span class="cert-name">DevOps training, ID-Networkers</span><span class="cert-year">2023</span></li>
-              </ul>
-            </div>
+          <div class="sec-head"><div class="sec-title-wrap"><span class="sec-index">05</span><h2 class="sec-title">Tools I test with</h2></div><span class="sec-note">3 groups</span></div>
+          <div class="toolkit glass-card">
+            <div class="toolkit-group"><span class="mono-label accent">I test with</span><p>Manual, SIT, UAT, regression, smoke and API testing, plus release verification.</p></div>
+            <div class="toolkit-group"><span class="mono-label accent">At the banks</span><p>Jira, Bruno, Postman, DBeaver, PostgreSQL, MySQL, Redis, TeMan, AS400.</p></div>
+            <div class="toolkit-group"><span class="mono-label accent">Learning by building</span><p>Playwright and Maestro in my own academies; pytest with AI assistance, reviewed by me.</p></div>
           </div>
         </div>
       </section>
+
 
       <!-- Contact: merged panel -->
       <section id="contact" class="section">
@@ -556,7 +400,7 @@
     </div>
   </div>
 
-  <script src="script.js?v=3.3" defer></script>
+  <script src="script.js?v=3.4" defer></script>
 
   <script type="application/ld+json">
   {
