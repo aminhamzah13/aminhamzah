@@ -1,3 +1,8 @@
 # Local only: design source and AI agent guide (not served by the site)
 design/
 CLAUDE.md
+
+# Editor and local exports
+.vscode/
+exports/
+.playwright-mcp/
