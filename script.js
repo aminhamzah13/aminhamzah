@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initSmoothScroll();
     initScrollSpy();
     initCopyrightYear();
+    initConsent();
 });
 
 /* --- Data: Project Details --- */
@@ -296,4 +297,35 @@ function initScrollSpy() {
 function initCopyrightYear() {
     const year = new Date().getFullYear();
     document.querySelectorAll('.current-year').forEach(el => { el.textContent = year; });
+}
+
+/* Cookie consent: GA runs in Consent Mode and only sets cookies after Accept */
+function initConsent() {
+    const banner = document.getElementById('consent');
+    if (!banner) return;
+    let stored = null;
+    try { stored = localStorage.getItem('consent'); } catch (e) {}
+    if (stored !== 'granted' && stored !== 'denied') banner.hidden = false;
+
+    banner.querySelectorAll('[data-consent]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const value = btn.dataset.consent;
+            try { localStorage.setItem('consent', value); } catch (e) {}
+            if (typeof gtag === 'function') gtag('consent', 'update', { analytics_storage: value });
+            if (value === 'denied') {
+                document.cookie.split(';').map(c => c.split('=')[0].trim()).filter(n => /^_ga/.test(n)).forEach(n => {
+                    document.cookie = `${n}=; Max-Age=0; path=/; domain=.${location.hostname}`;
+                    document.cookie = `${n}=; Max-Age=0; path=/`;
+                });
+            }
+            banner.hidden = true;
+        });
+    });
+
+    document.querySelectorAll('.cookie-settings').forEach(link => {
+        link.addEventListener('click', () => {
+            banner.hidden = false;
+            banner.querySelector('[data-consent]').focus();
+        });
+    });
 }
