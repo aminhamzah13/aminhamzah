@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initCopyrightYear();
     initConsent();
     initReveal();
+    initAnalytics();
 });
 
 /* --- Data: Project Details --- */
@@ -358,4 +359,20 @@ function initReveal() {
         el.classList.add('reveal');
         observer.observe(el);
     });
+}
+
+/* Load gtag.js on the first interaction or 3 s after load, so it does not delay first paint */
+function initAnalytics() {
+    let loaded = false;
+    const load = () => {
+        if (loaded) return;
+        loaded = true;
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-D98GPD5S0B';
+        document.head.append(script);
+    };
+    ['pointerdown', 'keydown', 'scroll'].forEach(type => addEventListener(type, load, { once: true, passive: true }));
+    if (document.readyState === 'complete') setTimeout(load, 3000);
+    else addEventListener('load', () => setTimeout(load, 3000), { once: true });
 }
