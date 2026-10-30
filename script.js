@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
     initScrollSpy();
     initCopyrightYear();
     initConsent();
+    initReveal();
 });
 
 /* --- Data: Project Details --- */
@@ -118,7 +119,7 @@ function initModeSwitch() {
             setMode(mode, true);
             window.scrollTo({ top: 0 });
             const visible = [...document.querySelectorAll(`button[data-set-mode="${mode}"]`)].find(el => el.offsetParent !== null);
-            if (visible) visible.focus();
+            if (visible) visible.focus({ focusVisible: e.detail === 0 });
             if (typeof gtag === 'function') gtag('event', 'mode_switch', { mode });
         });
     });
@@ -201,6 +202,7 @@ function openModal(projectId, trigger) {
     `;
 
     lastFocusedElement = trigger || document.activeElement;
+    modal.classList.remove('is-leaving');
     modal.classList.add('is-open');
     modal.setAttribute('aria-hidden', 'false');
     document.body.style.overflow = 'hidden';
@@ -210,11 +212,21 @@ function openModal(projectId, trigger) {
 window.openModal = openModal;
 
 function isModalOpen() {
-    return modal.classList.contains('is-open');
+    return modal.classList.contains('is-open') && !modal.classList.contains('is-leaving');
+}
+
+/* Plays the element's .is-leaving animation, then runs onDone unless it was reopened meanwhile */
+function playExit(el, onDone) {
+    el.classList.add('is-leaving');
+    Promise.allSettled(el.getAnimations({ subtree: true }).map(a => a.finished)).then(() => {
+        if (!el.classList.contains('is-leaving')) return;
+        el.classList.remove('is-leaving');
+        onDone();
+    });
 }
 
 function closeModal() {
-    modal.classList.remove('is-open');
+    playExit(modal, () => modal.classList.remove('is-open'));
     modal.setAttribute('aria-hidden', 'true');
     document.body.style.overflow = '';
     if (lastFocusedElement) lastFocusedElement.focus();
@@ -318,14 +330,31 @@ function initConsent() {
                     document.cookie = `${n}=; Max-Age=0; path=/`;
                 });
             }
-            banner.hidden = true;
+            playExit(banner, () => { banner.hidden = true; });
         });
     });
 
     document.querySelectorAll('.cookie-settings').forEach(link => {
         link.addEventListener('click', () => {
+            banner.classList.remove('is-leaving');
             banner.hidden = false;
             banner.querySelector('[data-consent]').focus();
         });
+    });
+}
+
+/* Page blocks rise in once as they enter the viewport, staggered among their siblings */
+function initReveal() {
+    if (!('IntersectionObserver' in window)) return;
+    const observer = new IntersectionObserver((entries) => {
+        entries.filter(entry => entry.isIntersecting).forEach(entry => {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+        });
+    }, { rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.sec-head, .matrix, .journey-item, .case, .prows li, .side-projects, .bug, .toolkit, .contact-panel').forEach(el => {
+        el.style.setProperty('--reveal-index', [...el.parentElement.children].indexOf(el));
+        el.classList.add('reveal');
+        observer.observe(el);
     });
 }
