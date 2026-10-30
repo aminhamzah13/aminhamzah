@@ -43,7 +43,7 @@
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
   <noscript><link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet"></noscript>
 
-  <link rel="stylesheet" href="styles.css?v=4.4">
+  <link rel="stylesheet" href="styles.css?v=4.5">
   <!-- Google Analytics — ganti G-D98GPD5S0B dengan Measurement ID kamu -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-D98GPD5S0B"></script>
   <script>
@@ -122,7 +122,7 @@
         <div class="container hero-grid">
           <div class="hero-text">
             <div class="eyebrow-row">
-              <span class="hero-avatar" aria-hidden="true"><img src="images/avatar-v5.webp" alt="" width="920" height="840" decoding="async"></span>
+              <span class="hero-avatar" aria-hidden="true"><img src="images/avatar-v5-128.webp" alt="" width="128" height="117" loading="lazy" decoding="async"></span>
               <span class="status-chip hairline"><span class="status-main">Open to QA collaborations</span><span class="status-sep" aria-hidden="true"></span><span class="status-meta">Jakarta</span></span>
             </div>
             <h1 class="hero-title"><span class="sr-only">Amin Hamzah, </span>QA Engineer specializing in banking systems</h1>
@@ -138,7 +138,7 @@
           </div>
           <div class="hero-visual">
             <div class="portrait glass-card">
-              <img src="images/avatar-v5.webp" alt="Cartoon illustration of Amin Hamzah" width="920" height="840" loading="eager" fetchpriority="high" decoding="async">
+              <picture><source media="(max-width: 767px)" srcset="images/avatar-v5-128.webp"><img src="images/avatar-v5.webp" alt="Cartoon illustration of Amin Hamzah" width="920" height="840" loading="eager" fetchpriority="high" decoding="async"></picture>
             </div>
             <dl class="evidence glass-card">
               <div class="evidence-row"><dt>Years in banking QA</dt><dd>3+</dd></div>
@@ -320,7 +320,7 @@
       <!-- Profile card -->
       <section class="lite-card lite-profile glass-card" aria-labelledby="lite-name">
         <div class="lite-top">
-          <span class="lite-avatar" aria-hidden="true"><img src="images/avatar-v5.webp" alt="" width="920" height="840" decoding="async"></span>
+          <span class="lite-avatar" aria-hidden="true"><img src="images/avatar-v5-128.webp" alt="" width="128" height="117" loading="lazy" decoding="async"></span>
           <div class="mode-switch" role="group" aria-label="Page mode">
             <button type="button" class="mode-seg" data-set-mode="lite" aria-pressed="true">
               <span>Lite</span>
@@ -427,7 +427,7 @@
     </div>
   </div>
 
-  <script src="script.js?v=3.6" defer></script>
+  <script src="script.js?v=3.7" defer></script>
 
   <script type="application/ld+json">
   {
@@ -445,6 +445,7 @@
       "@id": "https://aminhamzah.com/#profile",
       "url": "https://aminhamzah.com/",
       "name": "Amin Hamzah – QA Engineer for Banking Systems",
+      "dateModified": "2026-10-31",
       "isPartOf": { "@id": "https://aminhamzah.com/#website" },
       "mainEntity": { "@id": "https://aminhamzah.com/#person" }
     },
@@ -493,6 +494,14 @@
         "Manual Testing", "API Testing", "SIT", "UAT", "Regression Testing",
         "Release Verification", "Banking QA", "Test Automation",
         "Playwright", "Maestro", "Postman", "Bruno", "Jira"
+      ],
+      "hasCredential": [
+        { "@type": "EducationalOccupationalCredential", "name": "QA Selenium & Katalon Bootcamp, Test Aplikasi Kamu" },
+        { "@type": "EducationalOccupationalCredential", "name": "Manual API Testing and Cypress, Jago QA" },
+        { "@type": "EducationalOccupationalCredential", "name": "QA Engineer, Digital Skola" },
+        { "@type": "EducationalOccupationalCredential", "name": "Alibaba Cloud Certified Associate" },
+        { "@type": "EducationalOccupationalCredential", "name": "AWS Cloud Architect training, KEMKOMINFO" },
+        { "@type": "EducationalOccupationalCredential", "name": "DevOps training, ID-Networkers" }
       ],
       "worksFor": {
         "@type": "Organization",

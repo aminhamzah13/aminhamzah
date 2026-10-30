@@ -116,6 +116,7 @@ function initModeSwitch() {
             const mode = btn.dataset.setMode;
             if (mode === document.documentElement.getAttribute('data-mode')) return;
             closeMenu();
+            document.documentElement.classList.add('mode-switched');
             setMode(mode, true);
             window.scrollTo({ top: 0 });
             const visible = [...document.querySelectorAll(`button[data-set-mode="${mode}"]`)].find(el => el.offsetParent !== null);
