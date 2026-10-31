@@ -4,6 +4,20 @@
  * Breakpoints: desktop >= 1280, tablet 768-1279, mobile < 768
  */
 
+/* ---------- Fonts ---------- */
+@font-face {
+  font-family: "Instrument Sans";
+  src: url("fonts/instrument-sans-latin.woff2") format("woff2");
+  font-weight: 400 700;
+  font-display: swap;
+}
+@font-face {
+  font-family: "JetBrains Mono";
+  src: url("fonts/jetbrains-mono-latin.woff2") format("woff2");
+  font-weight: 400;
+  font-display: swap;
+}
+
 /* ---------- Tokens ---------- */
 :root {
   --bg: #0E0E0D;
